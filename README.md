@@ -30,4 +30,5 @@ Custom extended GB keyboard layout
 
 ---
 Feel free to use them. (DISCLAIMER: Use at your own risk)
-Any fix or suggestion is welcome.
+
+Any fix or suggestion is welcome. :smile:
