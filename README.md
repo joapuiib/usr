@@ -27,3 +27,7 @@ Some files for aucc configuration (https://github.com/rodgomesc/avell-unofficial
 Provides auto-completion for my scripts
 #### ~/usr/etc/xkb
 Custom extended GB keyboard layout
+
+---
+Feel free to use them. (DISCLAIMER: Use at your own risk)
+Any fix or suggestion is welcome.
