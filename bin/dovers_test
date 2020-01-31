@@ -1,0 +1,4 @@
+#!/bin/bash
+
+python /home/joapuiib/docencia/python/dovers/dovers.py \
+-c /home/joapuiib/docencia/workspace_test/.dovers $@

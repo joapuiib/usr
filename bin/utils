@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# Aquesta funció retorna la posició d'un element dins d'un array
+# Usage: _index_of_array item array
+_index_of_array(){
+    value=$1
+    array=$2
+    index="-1"
+    for i in "${!array[@]}"; do
+       if [[ "${array[$i]}" = "${value}" ]]; then
+           index="${i}";
+       fi
+    done
+    echo $index
+}
+
+# Aquesta funció uneix un array utilitzant un delimitador
+# Usage: _join_array delimitador array
+function _join_array { 
+    local IFS="$1"; shift; echo "$*";
+}

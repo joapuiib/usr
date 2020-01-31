@@ -1,0 +1,7 @@
+[Unit]
+Description=Avell Keyboard Configuration
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/aucc -s rainbow -b 2
+[Install]
+WantedBy=multi-user.target

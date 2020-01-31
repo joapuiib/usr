@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# This sends a notification including the argument as text
+notify-send "Task finished" $1

@@ -1,0 +1,82 @@
+#!/bin/bash
+
+# title             : audio
+# description       : Aquest script canvia la targeta d'audio que esta fent servir l'ordinador
+# author            : joapuiib
+# date              : 31/01/2020
+# version           : 1.0    
+# usage             : bash mkscript.sh [-l] targeta
+#                     -l :      Mostra la llista de targetes d'audio dispoinbles
+#                     targeta:  Nom o índex de la targeta. El nom pot ser parcial (utilitza grep amb la llista)
+# ==============================================================================
+
+# This function gets the audio sink list on our machine
+function _list_audio_sinks {
+    pacmd list-sinks | grep -e index: -e device.description | paste - - | cut -c5- | tr "\t" " " | tr -s " " | cut -d" " -f2,5- | sed 's/ /:/1' | tr -d \" | tr " " "_"
+}
+
+CARD=""
+LIST=0
+
+while [ $# -ge 1 ] ; do
+    case $1 in
+        -l)
+            LIST=1
+            ;;
+        *)
+            if [ $CARD ] ; then
+                (>&2 echo "No es pot especificar més d'una targeta d'audio")
+                exit 1
+            fi
+            CARD=$1
+            ;;
+    esac
+    shift
+done
+
+if [ $LIST -eq 1 ] ; then
+    _list_audio_sinks
+    exit 0
+elif [ -z $CARD ] ; then
+    echo ""
+    echo " Ús: $0 <tarjeta_audio>"
+    echo ""
+    exit 1
+fi
+
+LIST_SINKS=$( _list_audio_sinks )
+
+N_MATCHES=$( echo "$LIST_SINKS" | grep -c "$CARD" )
+MATCH_LINE=$( echo "$LIST_SINKS" | grep "$CARD" )
+
+#echo "$N_MATCHES"
+#echo "$MATCH_LINE"
+
+if [ $N_MATCHES -eq 0 ] ; then
+    (>&2 echo "No s'ha trobat cap tarjeta d'àudio.")
+    exit 1
+elif [ $N_MATCHES -gt 1 ] ; then
+    (>&2 echo "S'han trobat $N_MATCHES targetes amb aquesta búsqueda:")
+    for line in $MATCH_LINE ; do
+        (>&2 echo -e "\t$line" )
+    done
+    exit 1
+fi
+
+SINK_NAME=$( echo $MATCH_LINE | cut -d: -f2 )
+SINK_NUM=$( echo $MATCH_LINE | cut -d: -f1 )
+
+#echo $SINK_NAME
+#echo $SINK_NUM
+
+echo -en "Vols cambiar la tarjeta d'àudio a: \"$SINK_NAME\"($SINK_NUM) [S/N]: "
+read opc
+
+if [ "X${opc}" = "XS" ] ; then
+    pacmd set-default-sink $SINK_NUM
+    pacmd list-sink-inputs | grep index | while read line
+    do
+        pacmd move-sink-input `echo $line | cut -f2 -d' '` $SINK_NUM
+    done
+    echo -en "Tarjeta d'àudio canviada a: \"$SINK_NAME\"($SINK_NUM)\\n"
+fi

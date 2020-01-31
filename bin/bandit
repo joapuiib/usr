@@ -1,0 +1,38 @@
+#!/bin/bash
+
+# title             : bandit
+# description       : This connects to the OverTheWire Bandit game (https://overthewire.org/wargames/bandit/)
+# author            : joapuiib
+# date              : 31/01/2020
+# version           : 1.0    
+# usage             : bandit [-i ssh_key] level
+# ==============================================================================
+
+n=""
+key=""
+while [ $# -ge 1 ] ; do
+
+    case $1 in
+        -i)
+            key=$2
+            shift
+            ;;
+        *)
+            n=$1
+            ;;
+    esac
+    shift
+done
+
+if [ -z $n ]; then
+    echo No has seleccionat cap nivell
+    exit 1
+fi
+
+if [ $key ]; then
+    key="-i $key"
+fi
+
+comanda="ssh -p 2220 ${key} bandit${n}@bandit.labs.overthewire.org"
+echo $comanda
+$comanda
