@@ -53,5 +53,9 @@ export PYTHONPATH="$HOME/docencia/python/pdf"
 LANG="en_US.utf8"
 export LANG
 
+# Set vim default editor
+export VISUAL=vim
+export EDITOR="$VISUAL"
+
 # ?
 # stty -ixon
