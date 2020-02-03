@@ -13,13 +13,23 @@ _backup()
     opts=""
 
     case $prev in
-        --remote)
+        -h | --hosts)
             _known_hosts_real -a -F "$configfile" -- "$cur"
             ;;
-        *)
-            opts="--remote"
+        -f)
+            _filedir
             ;;
+        *)
+            case $cur in
+                --*)
+                    opts="--hosts"
+                    ;;
+                *)
+                    opts="-h -f"
+                    ;;
+            esac
     esac
+
 
     if [ ! "S${opts}" = "S" ]; then
         COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
