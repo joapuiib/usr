@@ -20,7 +20,7 @@ _audio()
 
     case $prev in
         *)
-            LIST_SINKS=$( _list_audio_sinks | cut -d: -f2 )
+            LIST_SINKS=$( _list_audio_sinks | cut -d: -f2 | sed -e 's:\([()]\):\\\\\0:g' )
             opts=$LIST_SINKS
             ;;
     esac
