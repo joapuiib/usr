@@ -27,6 +27,8 @@ Some files for aucc configuration (https://github.com/rodgomesc/avell-unofficial
 Provides auto-completion for my scripts
 #### ~/usr/etc/xkb
 Custom extended GB keyboard layout
+#### ~/usr/etc/nvim
+My NeoVim setup
 
 ---
 Feel free to use them. (DISCLAIMER: Use at your own risk)

@@ -60,6 +60,7 @@ EXCLUDE=""
 EXCLUDE="$EXCLUDE --exclude=__pycache__/"
 EXCLUDE="$EXCLUDE --exclude=build/"
 EXCLUDE="$EXCLUDE --exclude=*egg-info/"
+EXCLUDE="$EXCLUDE --exclude=*.egg"
 
 CMD_PROVA="rsync -avHCRn --delete $INCLUDE $EXCLUDE ${USUARI}@${HOST}:${DIR_ACTUAL}/./${FILES} ."
  CMD_REAL="rsync -avHCR  --delete $INCLUDE $EXCLUDE ${USUARI}@${HOST}:${DIR_ACTUAL}/./${FILES} ."
