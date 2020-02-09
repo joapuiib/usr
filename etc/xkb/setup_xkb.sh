@@ -5,5 +5,5 @@ if [ $UID -ne 0 ] ; then
     exit 1
 fi
 rm /usr/share/X11/xkb/symbols/gb
-ln ~/etc/xkb/gb /usr/share/X11/xkb/symbols/gb
+cp ~/usr/etc/xkb/gb /usr/share/X11/xkb/symbols/gb
 setxkbmap gb extd
