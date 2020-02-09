@@ -13,15 +13,21 @@ _rsync()
     opts=""
 
     case $prev in
-        --remote)
+        -h | --host)
             _known_hosts_real -a -F "$configfile" -- "$cur"
             ;;
-        --dir)
+        -f | --exclude )
             _filedir
             ;;
         *)
-            opts="--remote --dir"
-            ;;
+            case $cur in
+                --*)
+                    opts="--hosts --exclude"
+                    ;;
+                *)
+                    opts="-h -f"
+                    ;;
+            esac
     esac
 
     if [ ! "S${opts}" = "S" ]; then

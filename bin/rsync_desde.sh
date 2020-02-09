@@ -21,7 +21,7 @@ EXCLUDE=""
 while [ $# -ge 1 ] ; do
 
     case $1 in
-        --dir)
+        -f)
             DIR=$2
             shift
             ;;
@@ -29,7 +29,7 @@ while [ $# -ge 1 ] ; do
             EXCLUDE=" ${EXCLUDE} $1 $2 "
             shift
             ;;
-        --remote)
+        -h | --host)
             ORIGEN=$2
             shift
             ;;
