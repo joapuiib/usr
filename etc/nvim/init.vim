@@ -8,6 +8,7 @@ call plug#begin('~/.config/nvim/bundle')
     Plug 'zchee/deoplete-jedi'
     Plug 'deathlyfrantic/deoplete-spell'
     Plug 'bpstahlman/txtfmt'
+    Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 call plug#end()
 let g:deoplete#enable_at_startup = 1
 
@@ -95,3 +96,6 @@ endfunction
 
 " Press CTRL+R to run python script into separate term window 
 autocmd FileType python nnoremap <buffer> <F5> :call Termpy() <CR>
+
+"######################### LOAD FILES ###################################
+source ~/.config/nvim/config/markdown-preview.vim

@@ -7,7 +7,8 @@ if [ ! -d $CONFIG_FOLDER ] ; then
 fi
 
 cp init.vim $CONFIG_FOLDER/
-cp -r rplugin $CONFIG_FOLDER/
+cp -r rplugin/ $CONFIG_FOLDER/
+cp -r config/ $CONFIG_FOLDER/
 
 # Install nvim plugin manager
 if [ ! -f ~/.local/share/nvim/site/autoload/plug.vim ] ; then
