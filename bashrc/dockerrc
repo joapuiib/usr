@@ -1,0 +1,66 @@
+#!/bin/bash 
+
+# ------------------------------------
+# Docker alias and function
+# ------------------------------------
+
+# Get latest container ID
+alias dl="docker ps -l -q"
+complete -F _complete_alias dl
+
+# Get container process
+alias dps="docker ps"
+complete -F _complete_alias dps
+
+# Get process included stop container
+alias dpa="docker ps -a"
+complete -F _complete_alias dpa
+
+# Get images
+alias di="docker images"
+complete -F _complete_alias di
+
+# Get container IP
+alias dip="docker inspect --format '{{ .NetworkSettings.IPAddress }}'"
+complete -F _complete_alias dip
+
+# Run deamonized container, e.g., $dkd base /bin/echo hello
+alias dkd="docker run -d -P"
+complete -F _complete_alias dkd
+
+# Run interactive container, e.g., $dki base /bin/bash
+alias dki="docker run -it -P"
+complete -F _complete_alias dki
+
+# Execute interactive container, e.g., $dex base /bin/bash
+alias dex="docker exec -it"
+complete -F _complete_alias dex
+
+# Stop container
+# dstop() { docker stop $(docker ps -a -q); }
+alias dstop="docker stop"
+complete -F _complete_alias dstop
+
+# Remove containers
+# drm() { docker rm $(docker ps -a -q); }
+alias drm="docker rm"
+complete -F _complete_alias drm
+
+# Stop and Remove all containers
+# alias drmf='docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q)'
+
+# Remove image
+# dri() { docker rmi $(docker images -q); }
+alias dri="docker rmi"
+complete -F _complete_alias dri
+
+# Dockerfile build, e.g., $dbu tcnksm/test 
+# dbu() { docker build -t=$1 .; }
+alias dbu="docker build"
+complete -F _complete_alias dbu
+
+# Show all alias related docker
+dalias() { alias | grep 'docker' | sed "s/^\([^=]*\)=\(.*\)/\1 => \2/"| sed "s/['|\']//g" | sort; }
+
+# Bash into running container
+dbash() { docker exec -it $(docker ps -aqf "name=$1") bash; }

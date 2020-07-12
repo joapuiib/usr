@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# ------------------------------------
+# Custom aliases
+# ------------------------------------
+
+# alias chrome='google-chrome'
+alias chrome='chromium-browser'
+
+libre_office()
+{
+    libreoffice "$@" &> /dev/null &
+}
+alias lo=libre_office
+
+xdg_open()
+{
+    xdg-open "$@" &> /dev/null &
+}
+alias obri=xdg_open
+alias pytest='python3 -m pytest'

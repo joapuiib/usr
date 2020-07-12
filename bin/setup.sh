@@ -24,3 +24,12 @@
 # apt instal xclip
 
 # ln ~/etc/xkb/gb /usr/share/X11/symbols/
+
+# Install blueman bluetooth manager
+# apt install blueman
+# apt remove blueberry
+
+## Install ruby & jekyll
+# apt install ruby-full build-essential zlib1g-dev
+# apt install nodejs
+### gem install jekyll bundler

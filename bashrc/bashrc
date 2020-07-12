@@ -18,30 +18,6 @@ if [ -d $HOME/usr/etc/bash_completion ]; then
 fi
 
 
-# custom aliases
-# alias chrome='google-chrome'
-alias chrome='chromium-browser'
-
-libre_office()
-{
-    libreoffice "$@" &> /dev/null &
-}
-alias lo=libre_office
-
-xdg_open()
-{
-    xdg-open "$@" &> /dev/null &
-}
-alias obri=xdg_open
-alias pytest='python3 -m pytest'
-
-# Prompt command
-# Comanda que s'executara sempre que el Bash mostre el prompt
-if which augment_path.sh &>/dev/null ; then
-    export PATH_DEFAULT="$PATH"
-    PROMPT_COMMAND="source augment_path.sh"
-fi
-
 # Env variables for fast cd on usual folders
 if [ -f $HOME/docencia/.estat_actual ] ; then
     source $HOME/docencia/.estat_actual
@@ -59,3 +35,23 @@ export EDITOR="$VISUAL"
 
 # ?
 # stty -ixon
+
+### RUBY CONFIG
+# Install Ruby Gems to ~/gems' >> ~/.bashrc
+export GEM_HOME="$HOME/gems"
+export PATH="$HOME/gems/bin:$PATH"
+
+# Prompt command
+# Comanda que s'executara sempre que el Bash mostre el prompt
+if which augment_path.sh &>/dev/null ; then
+    export PATH_DEFAULT="$PATH"
+    PROMPT_COMMAND="source augment_path.sh"
+fi
+
+# Shared Lib path
+export LD_LIBRARY_PATH="/usr/local/lib"
+
+# Source aliases
+source $HOME/usr/bashrc/complete_alias
+source $HOME/usr/bashrc/dockerrc
+source $HOME/usr/bashrc/aliases
