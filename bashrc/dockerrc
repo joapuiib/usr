@@ -25,11 +25,11 @@ alias dip="docker inspect --format '{{ .NetworkSettings.IPAddress }}'"
 complete -F _complete_alias dip
 
 # Run deamonized container, e.g., $dkd base /bin/echo hello
-alias dkd="docker run -d -P"
+alias dkd="docker run -d"
 complete -F _complete_alias dkd
 
 # Run interactive container, e.g., $dki base /bin/bash
-alias dki="docker run -it -P"
+alias dki="docker run -it"
 complete -F _complete_alias dki
 
 # Execute interactive container, e.g., $dex base /bin/bash
@@ -40,6 +40,11 @@ complete -F _complete_alias dex
 # dstop() { docker stop $(docker ps -a -q); }
 alias dstop="docker stop"
 complete -F _complete_alias dstop
+
+# Start container
+# dstop() { docker stop $(docker ps -a -q); }
+alias dstart="docker start"
+complete -F _complete_alias dstart
 
 # Remove containers
 # drm() { docker rm $(docker ps -a -q); }
