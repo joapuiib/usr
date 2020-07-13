@@ -1,7 +1,3 @@
-"set runtimepath^=~/.vim runtimepath+=~/.vim/after
-"let &packpath=&runtimepath
-"source ~/.vimrc
-
 " Install plugins
 call plug#begin('~/.config/nvim/bundle')
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -11,12 +7,15 @@ call plug#begin('~/.config/nvim/bundle')
     Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 call plug#end()
 let g:deoplete#enable_at_startup = 1
+let g:python3_host_prog='/usr/bin/python3'
+let g:python_host_prog='/usr/bin/python2'
 
 
 " NeoVim config
 " #######################################################################
 
 syntax on
+filetype indent plugin on
 
 set autoindent autowrite showmatch wrapmargin=0 report=1
 set showmode nowrap ru
@@ -26,12 +25,10 @@ set background=dark
 set scrolloff=10
 
 set nohlsearch
-
-filetype indent plugin on
-
 set iskeyword+=:
 
-inoremap jk <ESC>
+nnoremap H 0
+nnoremap L $
 map ; @@
 
 "split navigations
@@ -45,57 +42,19 @@ let @y='"+y'
 let @p='"+p'
 
 " Enable folding
-set foldmethod=indent
-set foldlevel=30
-
+" set foldmethod=indent
+" set foldlevel=30
 " Enable folding with the spacebar
-nnoremap <space> za
+" nnoremap <space> za
 
-
-" Dovers Grade functions
-" #######################################################################
-let @h=':try | exe "norm k" | endtry/%/\/llv/)hy/%N'
-let @j='Plxh'
-map <F1> @h@j
-map <F2> @h:new<CR>A<C-r>=<C-r>"*3.0/4.0<CR><ESC>0v/.<CR>lly:q!<CR>@j
-map <F3> @h:new<CR>A<C-r>=<C-r>"/2.0<CR><ESC>0v/.<CR>lly:q!<CR>@j
-map <F4> @h:new<CR>A<C-r>=<C-r>"/4.0<CR><ESC>0v/.<CR>lly:q!<CR>@j
-map <F5> @hr0
-
-map <F10> :CommentHistory
-let @c='o```text```k'
-
-
-" Txtfmt configuration
-" #######################################################################
-let g:txtfmtMapwarn = 'c'   " Prevent warnings
-let g:txtfmtBgcolormask = "11111111"
-let g:txtfmtColor{1} = '^o\\%[range]$,c:214,g:#FFA500'
-let g:txtfmtColor{7} = '^y\\%[ellow]$,c:Yellow,g:#FFFF00'
-au! filetypedetect BufRead,BufNewFile *.txt,.comments setfiletype txtfmt
-let maplocalleader=','
-
-
-" Deoplete configuration
-" #######################################################################
-autocmd FileType python nnoremap <leader>y :0,$!yapf<Cr>
-autocmd CompleteDone * pclose " To close preview window of deoplete automagically
-
-set completeopt-=preview
-
-" <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-
-" Python functions
-" #######################################################################
-" From https://vi.stackexchange.com/questions/15431/how-can-i-make-the-neovim-terminal-run-the-current-file-in-python
-" Create a function to open a neovim terminal in a small split window and run python 
-function! Termpy()
-  exec winheight(0)/4."split" | terminal python3 %
-endfunction
-
-" Press CTRL+R to run python script into separate term window 
-autocmd FileType python nnoremap <buffer> <F5> :call Termpy() <CR>
+let mapleader = "\\"
+let maplocalleader = ","
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
 
 "######################### LOAD FILES ###################################
+source ~/.config/nvim/config/python.vim
+source ~/.config/nvim/config/deoplete.vim
 source ~/.config/nvim/config/markdown-preview.vim
+source ~/.config/nvim/config/txtfmt.vim
+source ~/.config/nvim/config/dovers.vim
