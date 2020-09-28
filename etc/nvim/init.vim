@@ -53,8 +53,9 @@ nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
 "######################### LOAD FILES ###################################
-source ~/.config/nvim/config/python.vim
 source ~/.config/nvim/config/deoplete.vim
-source ~/.config/nvim/config/markdown-preview.vim
-source ~/.config/nvim/config/txtfmt.vim
 source ~/.config/nvim/config/dovers.vim
+source ~/.config/nvim/config/markdown.vim
+source ~/.config/nvim/config/markdown-preview.vim
+source ~/.config/nvim/config/python.vim
+source ~/.config/nvim/config/txtfmt.vim
