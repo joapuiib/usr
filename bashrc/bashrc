@@ -45,7 +45,7 @@ export PATH="$HOME/gems/bin:$PATH"
 # Comanda que s'executara sempre que el Bash mostre el prompt
 if which augment_path.sh &>/dev/null ; then
     export PATH_DEFAULT="$PATH"
-    PROMPT_COMMAND="source augment_path.sh"
+    # PROMPT_COMMAND="source augment_path.sh"
 fi
 
 # Shared Lib path
