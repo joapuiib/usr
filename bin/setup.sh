@@ -29,7 +29,9 @@
 # apt install blueman
 # apt remove blueberry
 
-## Install ruby & jekyll
-# apt install ruby-full build-essential zlib1g-dev
-# apt install nodejs
-### gem install jekyll bundler
+## Install ruby with rbenv
+# git clone git@github.com:sstephenson/rbenv.git ~/.rbenv
+## (already in usr/bashrc/bashrc) echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
+# mkdir -p "$(rbenv root)"/plugins
+# git clone https://github.com/rbenv/ruby-build.git "$(rbenv root)"/plugins/ruby-build
+

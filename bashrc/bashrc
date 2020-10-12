@@ -17,6 +17,10 @@ if [ -d $HOME/usr/etc/bash_completion ]; then
     done
 fi
 
+# Source aliases
+source $HOME/usr/bashrc/complete_alias
+source $HOME/usr/bashrc/dockerrc
+source $HOME/usr/bashrc/aliases
 
 # Env variables for fast cd on usual folders
 if [ -f $HOME/docencia/.estat_actual ] ; then
@@ -38,8 +42,10 @@ export EDITOR="$VISUAL"
 
 ### RUBY CONFIG
 # Install Ruby Gems to ~/gems' >> ~/.bashrc
-export GEM_HOME="$HOME/gems"
-export PATH="$HOME/gems/bin:$PATH"
+export GEM_HOME="$HOME/.gems"
+export PATH="$HOME/.gems/bin:$PATH"
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
 
 # Prompt command
 # Comanda que s'executara sempre que el Bash mostre el prompt
@@ -50,8 +56,3 @@ fi
 
 # Shared Lib path
 export LD_LIBRARY_PATH="/usr/local/lib"
-
-# Source aliases
-source $HOME/usr/bashrc/complete_alias
-source $HOME/usr/bashrc/dockerrc
-source $HOME/usr/bashrc/aliases
