@@ -35,3 +35,9 @@
 # mkdir -p "$(rbenv root)"/plugins
 # git clone https://github.com/rbenv/ruby-build.git "$(rbenv root)"/plugins/ruby-build
 
+## Install yarn
+# curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+# echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+
+## SQLite
+# sudo apt-get install sqlite3 libsqlite3-dev

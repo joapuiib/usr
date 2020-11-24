@@ -21,10 +21,16 @@ fi
 source $HOME/usr/bashrc/complete_alias
 source $HOME/usr/bashrc/dockerrc
 source $HOME/usr/bashrc/aliases
+# source $HOME/usr/bashrc/docencia
 
 # Env variables for fast cd on usual folders
 if [ -f $HOME/docencia/.estat_actual ] ; then
     source $HOME/docencia/.estat_actual
+fi
+
+# Bin folders
+if [ -d $HOME/docencia/bin ] ; then
+    PATH="$HOME/docencia/bin:$PATH"
 fi
 
 export PYTHONPATH="$HOME/docencia/python/pdf"
