@@ -1,0 +1,13 @@
+#!/bin/bash
+
+dovers="$HOME/docencia/python/dovers"
+alias itb="cd $HOME/docencia/static_site/itb"
+alias itb_data="cd $HOME/docencia/static_site/itb/data"
+alias itb_source="cd $HOME/docencia/static_site/itb/source"
+alias itb_templates="cd $HOME/docencia/static_site/itb/templates"
+alias m16="cd $HOME/docencia/static_site/itb/source/DAM-M16/UF1"
+alias m3="cd $HOME/docencia/static_site/itb/source/DAM-M03/UF1"
+alias m3_data="cd $HOME/docencia/static_site/itb/data/moduls/DAM-M03"
+alias m1_data="cd $HOME/docencia/static_site/itb/data/moduls/DAM-M01"
+alias m16_data="cd $HOME/docencia/static_site/itb/data/moduls/DAM-M16"
+alias grade="cd $HOME/docencia/moduls/m3/grade"
