@@ -51,7 +51,10 @@ export EDITOR="$VISUAL"
 export GEM_HOME="$HOME/.gems"
 export PATH="$HOME/.gems/bin:$PATH"
 export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+which rbenv &>/dev/null
+if [ $? == 0 ] ; then
+    eval "$(rbenv init -)"
+fi
 
 # Prompt command
 # Comanda que s'executara sempre que el Bash mostre el prompt
