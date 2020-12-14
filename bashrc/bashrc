@@ -43,13 +43,16 @@ export EDITOR="$VISUAL"
 
 ### RUBY CONFIG
 # Install Ruby Gems to ~/gems' >> ~/.bashrc
-export GEM_HOME="$HOME/.gems"
+# export GEM_HOME="$HOME/.gems"
 export PATH="$HOME/.gems/bin:$PATH"
 export PATH="$HOME/.rbenv/bin:$PATH"
 which rbenv &>/dev/null
 if [ $? == 0 ] ; then
     eval "$(rbenv init -)"
 fi
+
+### Node modules
+export NODE_PATH=/usr/local/lib/node_modules/
 
 # Prompt command
 # Comanda que s'executara sempre que el Bash mostre el prompt
