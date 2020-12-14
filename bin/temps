@@ -1,4 +1,10 @@
 #!/bin/bash
 
 # This script provides the wheather from (https://github.com/chubin/wttr.in)
-curl v2.wttr.in/$1
+
+function _join_array { 
+    local IFS="$1"; shift; echo "$*";
+}
+
+query=`_join_array + $@`
+curl v2.wttr.in/$query
