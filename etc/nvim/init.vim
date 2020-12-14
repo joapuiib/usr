@@ -5,6 +5,7 @@ call plug#begin('~/.config/nvim/bundle')
     Plug 'deathlyfrantic/deoplete-spell'
     Plug 'bpstahlman/txtfmt'
     Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
+    Plug 'tpope/vim-surround'
 call plug#end()
 let g:deoplete#enable_at_startup = 1
 let g:python3_host_prog='/usr/bin/python3'
@@ -27,8 +28,8 @@ set scrolloff=10
 set nohlsearch
 set iskeyword+=:
 
-nnoremap H 0
-nnoremap L $
+noremap H 0
+noremap L $
 map ; @@
 
 "split navigations
@@ -58,4 +59,5 @@ source ~/.config/nvim/config/dovers.vim
 source ~/.config/nvim/config/markdown.vim
 source ~/.config/nvim/config/markdown-preview.vim
 source ~/.config/nvim/config/python.vim
+source ~/.config/nvim/config/yaml.vim
 source ~/.config/nvim/config/txtfmt.vim
