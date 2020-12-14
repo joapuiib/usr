@@ -22,3 +22,6 @@ alias pytest='python3 -m pytest'
 
 alias autosource="source $HOME/.bashrc"
 alias usr="cd ~/usr"
+
+alias nvim="nvim -u ~/usr/etc/nvim/init.vim"
+alias vi="nvim"

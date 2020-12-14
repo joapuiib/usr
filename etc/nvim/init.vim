@@ -53,6 +53,17 @@ let maplocalleader = ","
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
+" Spell syntax
+" Per incloure el punt volat
+set iskeyword+=·
+set spelllang=ca,en
+set spell
+hi clear SpellBad
+hi SpellBad cterm=underline ctermfg=red
+" Dont parse urls
+syn match UrlNoSpell "\w\+:\/\/[^[:space:]]\+" contains=@NoSpell
+
+
 "######################### LOAD FILES ###################################
 source ~/.config/nvim/config/deoplete.vim
 source ~/.config/nvim/config/dovers.vim
