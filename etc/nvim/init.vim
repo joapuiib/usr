@@ -57,7 +57,7 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 " Per incloure el punt volat
 set iskeyword+=·
 set spelllang=ca,en
-set spell
+" set spell
 hi clear SpellBad
 hi SpellBad cterm=underline ctermfg=red
 " Dont parse urls
