@@ -25,3 +25,5 @@ alias usr="cd ~/usr"
 
 alias nvim="nvim -u ~/usr/etc/nvim/init.vim"
 alias vi="nvim"
+
+alias clip="xclip -sel clipboard"
