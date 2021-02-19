@@ -6,6 +6,7 @@ call plug#begin('~/.config/nvim/bundle')
     Plug 'bpstahlman/txtfmt'
     Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
     Plug 'tpope/vim-surround'
+    Plug 'pangloss/vim-javascript' " JavaScript syntax
 call plug#end()
 let g:deoplete#enable_at_startup = 1
 let g:python3_host_prog='/usr/bin/python3'
@@ -72,3 +73,4 @@ source ~/.config/nvim/config/markdown-preview.vim
 source ~/.config/nvim/config/python.vim
 source ~/.config/nvim/config/yaml.vim
 source ~/.config/nvim/config/txtfmt.vim
+source ~/.config/nvim/config/javascript.vim
