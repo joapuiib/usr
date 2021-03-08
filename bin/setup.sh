@@ -1,7 +1,7 @@
 # List of steps in order to configure my setup
 # This should become a setup script
 
-# sudo apt install nvidia-drivers-435
+# sudo apt install nvidia-drivers-460
 # sudo apt install git
 
 # sudo add-apt-repository ppa:neovim-ppa/stable
@@ -21,13 +21,31 @@
 # apt install neovim
 # pip3 install pynvim
 # :UpdateRemotePlugins
-# apt instal xclip
+# apt install xclip
 
 # ln ~/etc/xkb/gb /usr/share/X11/symbols/
+# setxkbmap gb extd
 
 # Install blueman bluetooth manager
 # apt install blueman
 # apt remove blueberry
+
+## IntelliJ
+## https://github.com/JonasGroeger/jetbrains-ppa
+# curl -s https://s3.eu-central-1.amazonaws.com/jetbrains-ppa/0xA6E8698A.pub.asc | sudo apt-key add -
+# echo "deb http://jetbrains-ppa.s3-website.eu-central-1.amazonaws.com bionic main" | sudo tee /etc/apt/sources.list.d/jetbrains-ppa.list > /dev/null
+# sudo apt-get update
+
+## Virtualbox
+## https://www.virtualbox.org/wiki/Linux_Downloads
+# echo "deb [arch=amd64] https://download.virtualbox.org/virtualbox/debian bionic contrib" | sudo tee /etc/apt/sources.list.d/virtualbox.list
+# wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
+# wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key add -
+
+## tensorflow + cuda
+## https://gist.github.com/kmhofmann/cee7c0053da8cc09d62d74a6a4c1c5e4
+## fix libcusolver.10
+# apt install libcusolver10
 
 ## Install ruby with rbenv
 # git clone git@github.com:sstephenson/rbenv.git ~/.rbenv
