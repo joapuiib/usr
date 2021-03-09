@@ -47,6 +47,13 @@
 ## fix libcusolver.10
 # apt install libcusolver10
 
+## Dokcer
+# echo "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable" | sudo tee /etc/apt/sources.list.d/docker.list
+# curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+# sudo apt update
+# sudo apt install docker-ce docker-ce-cli containerd.io pigz
+# sudo usermod -aG docker $USER
+
 ## Install ruby with rbenv
 # git clone git@github.com:sstephenson/rbenv.git ~/.rbenv
 ## (already in usr/bashrc/bashrc) echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
@@ -59,3 +66,4 @@
 
 ## SQLite
 # sudo apt-get install sqlite3 libsqlite3-dev
+
