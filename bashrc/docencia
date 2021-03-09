@@ -1,21 +1,34 @@
 #!/bin/bash
 
+# Declara una variable d'entorn i un alias per anar a la ruta
+# $1 id alias/variable
+# $2 ruta
+set_variable_alias () {
+    # -g declares a global variable
+    declare -g "$1"="$2"
+    alias "$1"="cd $2"
+}
+
 dovers="$HOME/docencia/python/dovers"
-alias itb="cd $HOME/docencia/static_site/itb"
-alias itb_data="cd $HOME/docencia/static_site/itb/data"
-alias itb_source="cd $HOME/docencia/static_site/itb/source"
-alias itb_templates="cd $HOME/docencia/static_site/itb/templates"
-alias m16="cd $HOME/docencia/static_site/itb/source/DAM-M16/UF1"
-alias m3="cd $HOME/docencia/static_site/itb/source/DAM-M03"
-alias m31="cd $HOME/docencia/static_site/itb/source/DAM-M03/UF1"
-alias m32="cd $HOME/docencia/static_site/itb/source/DAM-M03/UF2"
-alias m33="cd $HOME/docencia/static_site/itb/source/DAM-M03/UF3"
-alias m34="cd $HOME/docencia/static_site/itb/source/DAM-M03/UF4"
-alias m35="cd $HOME/docencia/static_site/itb/source/DAM-M03/UF5"
-alias m36="cd $HOME/docencia/static_site/itb/source/DAM-M03/UF6"
-alias opos="cd $HOME/docencia/static_site/itb/source/Oposicions/UF1/exercicis"
-alias m3_data="cd $HOME/docencia/static_site/itb/data/moduls/DAM-M03"
-alias m1_data="cd $HOME/docencia/static_site/itb/data/moduls/DAM-M01"
-alias m16_data="cd $HOME/docencia/static_site/itb/data/moduls/DAM-M16"
+
+set_variable_alias "itb" "$HOME/docencia/static_site/itb/"
+set_variable_alias "itb_data" "$itb/data"
+set_variable_alias "itb_source" "$itb/source"
+set_variable_alias "itb_templates" "$itb/templates"
+
+declare -A moduls
+moduls=( ["m1"]="DAM-M01" ["m3"]="DAM-M03" ["m16"]="DAM-M16" )
+for modul in ${!moduls[@]}; do
+    codi=${moduls[$modul]}
+    set_variable_alias "${modul}"      "$itb_source/$codi"
+    set_variable_alias "${modul}_data" "$itb_data/$codi"
+    UFS=`find "$itb_source/$codi" -maxdepth 1 -name UF\* | sed 's/^.*UF//'`
+    for i in $UFS; do
+        set_variable_alias "${modul}$i" "$itb_source/$codi/UF$i"
+    done
+done
+unset codi
+
+alias opos="cd $itb_source/Oposicions/UF1/exercicis"
 alias grade="cd $HOME/docencia/moduls/m3/grade"
 alias gripau="cd $HOME/docencia/gripau/gripau-server"
