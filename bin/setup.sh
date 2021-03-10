@@ -67,3 +67,9 @@
 ## SQLite
 # sudo apt-get install sqlite3 libsqlite3-dev
 
+# AUCC
+# cd ~/prog/python/aucc
+# git pull
+# python3 setup.py build
+# python3 setup.py install
+# cd
