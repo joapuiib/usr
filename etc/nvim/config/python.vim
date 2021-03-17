@@ -10,3 +10,4 @@ endfunction
 " Press CTRL+R to run python script into separate term window 
 autocmd FileType python nnoremap <buffer> <F5> :call Termpy() <CR>
 
+let g:ale_python_flake8_options="--ignore=E501,E241"

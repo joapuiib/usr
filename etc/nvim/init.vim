@@ -7,6 +7,7 @@ call plug#begin('~/.config/nvim/bundle')
     Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
     Plug 'tpope/vim-surround'
     Plug 'pangloss/vim-javascript' " JavaScript syntax
+    Plug 'dense-analysis/ale' " Syntax checker
 call plug#end()
 let g:deoplete#enable_at_startup = 1
 let g:python3_host_prog='/usr/bin/python3'
@@ -27,7 +28,7 @@ set background=dark
 set scrolloff=10
 
 set nohlsearch
-set iskeyword+=:
+" set iskeyword+=:
 
 noremap H 0
 noremap L $
@@ -61,8 +62,14 @@ set spelllang=ca,en
 " set spell
 hi clear SpellBad
 hi SpellBad cterm=underline ctermfg=red
-" Dont parse urls
+" Dont spell urls
 syn match UrlNoSpell "\w\+:\/\/[^[:space:]]\+" contains=@NoSpell
+
+"######################### ALE ###################################
+nmap <F8> <Plug>(ale_fix)
+let g:ale_use_global_executables = 1
+let b:ale_linters = {'python': ['flake8']}
+let b:ale_fixers = {'python': ['autopep8']}
 
 
 "######################### LOAD FILES ###################################
