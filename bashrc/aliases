@@ -5,16 +5,18 @@
 # ------------------------------------
 
 # alias chrome='google-chrome'
-alias chrome='chromium-browser'
+if which chromium-browser >/dev/null; then
+    alias chrome='chromium-browser'
+elif which chromium >/dev/null; then
+    alias chrome='chromium'
+fi
 
-libre_office()
-{
+libre_office() {
     libreoffice "$@" &> /dev/null &
 }
 alias lo=libre_office
 
-xdg_open()
-{
+xdg_open() {
     xdg-open "$@" &> /dev/null &
 }
 alias obri=xdg_open
