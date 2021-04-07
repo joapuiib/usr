@@ -1,4 +1,3 @@
-" Install plugins
 call plug#begin('~/.config/nvim/bundle')
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     Plug 'zchee/deoplete-jedi'
@@ -52,8 +51,9 @@ let @p='"+p'
 
 let mapleader = "\\"
 let maplocalleader = ","
-nnoremap <leader>ev :vsplit $MYVIMRC<cr>
-nnoremap <leader>sv :source $MYVIMRC<cr>
+nnoremap <leader>ev :vsplit $HOME/usr/etc/nvim/init.vim <cr>
+nnoremap <leader>iv ! bash $HOME/usr/etc/nvim/install.sh >/dev/null <cr> 
+nnoremap <leader>sv :source $HOME/.config/nvim/init.vim <cr>
 
 " Spell syntax
 " Per incloure el punt volat
@@ -64,6 +64,10 @@ hi clear SpellBad
 hi SpellBad cterm=underline ctermfg=red
 " Dont spell urls
 syn match UrlNoSpell "\w\+:\/\/[^[:space:]]\+" contains=@NoSpell
+
+" Terminal starts in insert mode
+autocmd TermOpen term://* startinsert
+
 
 "######################### ALE ###################################
 nmap <F8> <Plug>(ale_fix)
