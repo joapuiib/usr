@@ -7,7 +7,6 @@ function! Termpy()
   exec winheight(0)/4."split" | terminal python3 -i %
 endfunction
 
-" Press CTRL+R to run python script into separate term window 
-autocmd FileType python nnoremap <buffer> <F5> :w <bar> :call Termpy() <CR>
-
+" Press F5 to run python script into separate term window 
+nnoremap <buffer> <F5> :w <bar> :call Termpy() <CR>
 let g:ale_python_flake8_options="--ignore=E501,E241"

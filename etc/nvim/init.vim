@@ -7,6 +7,8 @@ call plug#begin('~/.config/nvim/bundle')
     Plug 'tpope/vim-surround'
     Plug 'pangloss/vim-javascript' " JavaScript syntax
     Plug 'dense-analysis/ale' " Syntax checker
+    Plug 'SirVer/ultisnips' " Snippets engine
+    Plug 'honza/vim-snippets' " Snippets
 call plug#end()
 let g:deoplete#enable_at_startup = 1
 let g:python3_host_prog='/usr/bin/python3'
@@ -75,13 +77,16 @@ let g:ale_use_global_executables = 1
 let b:ale_linters = {'python': ['flake8']}
 let b:ale_fixers = {'python': ['autopep8']}
 
+"######################### SNIPPETS ###################################
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
 
 "######################### LOAD FILES ###################################
 source ~/.config/nvim/config/deoplete.vim
 source ~/.config/nvim/config/dovers.vim
-source ~/.config/nvim/config/markdown.vim
 source ~/.config/nvim/config/markdown-preview.vim
-source ~/.config/nvim/config/python.vim
-source ~/.config/nvim/config/yaml.vim
 source ~/.config/nvim/config/txtfmt.vim
-source ~/.config/nvim/config/javascript.vim
