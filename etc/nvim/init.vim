@@ -6,9 +6,12 @@ call plug#begin('~/.config/nvim/bundle')
     Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
     Plug 'tpope/vim-surround'
     Plug 'pangloss/vim-javascript' " JavaScript syntax
+    Plug 'vim-python/python-syntax' " Python syntax
     Plug 'dense-analysis/ale' " Syntax checker
     Plug 'SirVer/ultisnips' " Snippets engine
     Plug 'honza/vim-snippets' " Snippets
+    " Plug 'Shougo/neosnippet.vim' " Snippets engine
+    " Plug 'Shougo/neosnippet-snippets' " Snippets
 call plug#end()
 let g:deoplete#enable_at_startup = 1
 let g:python3_host_prog='/usr/bin/python3'
@@ -78,15 +81,11 @@ let b:ale_linters = {'python': ['flake8']}
 let b:ale_fixers = {'python': ['autopep8']}
 
 "######################### SNIPPETS ###################################
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
-
-"######################### LOAD FILES ###################################
-source ~/.config/nvim/config/deoplete.vim
-source ~/.config/nvim/config/dovers.vim
-source ~/.config/nvim/config/markdown-preview.vim
-source ~/.config/nvim/config/txtfmt.vim
+" Trigger configuration. You need to change this to something other than <tab> if you use one of the following:
+" - https://github.com/Valloric/YouCompleteMe
+" - https://github.com/nvim-lua/completion-nvim
+" let g:UltiSnipsExpandTrigger="<tab>"
+" let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsExpandTrigger="<C-K>"
+let g:UltiSnipsJumpForwardTrigger="<C-K>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"

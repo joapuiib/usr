@@ -10,3 +10,5 @@ endfunction
 " Press F5 to run python script into separate term window 
 nnoremap <buffer> <F5> :w <bar> :call Termpy() <CR>
 let g:ale_python_flake8_options="--ignore=E501,E241"
+
+let g:python_highlight_all = 1

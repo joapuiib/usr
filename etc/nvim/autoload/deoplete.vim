@@ -6,4 +6,4 @@ autocmd CompleteDone * pclose " To close preview window of deoplete automagicall
 set completeopt-=preview
 
 " <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"

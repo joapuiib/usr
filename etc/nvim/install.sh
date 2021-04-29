@@ -8,7 +8,7 @@ fi
 
 cp init.vim $CONFIG_FOLDER/
 cp -r rplugin/ $CONFIG_FOLDER/
-cp -r config/ $CONFIG_FOLDER/
+cp -r autoload/ $CONFIG_FOLDER/
 cp -r after/ $CONFIG_FOLDER/
 cp -r snippets/ $CONFIG_FOLDER/
 cp -r ftplugin/ $CONFIG_FOLDER/
