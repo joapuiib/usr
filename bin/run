@@ -1,0 +1,66 @@
+#!/usr/bin/env python3.8
+import argparse
+import os
+import subprocess
+import itertools
+
+
+def run_commands(command_list):
+    for command in command_list:
+        test = None
+        if isinstance(command, tuple):
+            command, test = command
+
+        stdin = open(test, "r") if test is not None else None 
+        process = subprocess.Popen(command.split(), stdin=stdin, stdout=subprocess.PIPE)
+        output = process.communicate(test)[0].decode("utf-8")
+        return_code = process.returncode
+        if return_code != 0:
+            print(f"Error en la commanda \"{command}\"")
+            return
+        if len(output) > 0:
+            return output
+
+
+def column_print(first, second, n=None, margin=10):
+    first = first.splitlines()
+    second = second.splitlines()
+
+    if n is None:
+        max_first = max([len(x) for x in first])
+        max_second = max([len(x) for x in second])
+        n = max(max_first, max_second)
+
+    n += 2  # We take into account ^ and $ for correct colum print
+    for i, j in itertools.zip_longest(first, second):
+        i = "^" + i + "$" if i is not None else ""
+        j = "^" + j + "$" if j is not None else ""
+        print(f"{i.ljust(n)}{' '*margin}{j.ljust(n)}")
+
+
+commands = {}
+commands[".java"] = lambda x, test=None: [f"javac {x}", (f"java {os.path.splitext(x)[0]}", test)]
+
+parser = argparse.ArgumentParser()
+parser.add_argument("input", nargs="?")
+parser.add_argument("output", nargs="?")
+args = parser.parse_args()
+
+files = []
+for file in os.listdir("."):
+    if os.path.splitext(file)[1] in commands.keys():
+        files.append(file)
+
+if len(files) == 0:
+    print("No files found")
+elif len(files) > 1:
+    print("Too many files")
+
+file = files[0]
+ext = os.path.splitext(file)[1]
+output = run_commands(commands[ext](file, args.input))
+if args.output is None:
+    print(output, end="")
+else:
+    expected_output = open(args.output, "r").read()
+    column_print(output, expected_output)
