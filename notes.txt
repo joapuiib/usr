@@ -1,0 +1,47 @@
+VIM
+Configurar i practicar vim
+
+Colors (c) & Background (k):
+o = Taronja (Custom)
+b = Blau
+g = Verd (Green)
+t = Turquesa
+r = Roig
+v = Violeta
+y = Groc (Custom)
+w = Blanc
+
+Formats (f):
+b = Bold
+i = Italic
+u = Underlined
+
+Comandes:
+\h -> aplica format a seleccio o text object
+
+Recursos
+mentimeter.com -> Interactive presentations
+
+Dynamic PATH
+https://superuser.com/questions/914087/can-i-change-my-path-dynamically-based-on-my-cwd
+~/bin/augment_path.sh
+
+Auto-complete Linux
+http://www.hypexr.org/bash_tutorial.php#completion
+/usr/share/bash-completion/completions
+/etc/bash_completion.d
+~/usr/etc/bash_completion/
+
+Keyboard custom
+/usr/share/X11/xkb/symbols/
+~/etc/xkb/gb
+setxkbmap gb extd
+
+Unicode Table Drawing
+http://jrgraphix.net/r/Unicode/2500-257F
+
+Todo:
+Scrpit canviar display
+db-meter
+shortcuts vim
+fpdf
