@@ -10,6 +10,7 @@ call plug#begin('~/.config/nvim/bundle')
     Plug 'dense-analysis/ale' " Syntax checker
     Plug 'SirVer/ultisnips' " Snippets engine
     Plug 'honza/vim-snippets' " Snippets
+    Plug 'ervandew/supertab'
     " Plug 'Shougo/neosnippet.vim' " Snippets engine
     " Plug 'Shougo/neosnippet-snippets' " Snippets
 call plug#end()
@@ -79,13 +80,3 @@ nmap <F8> <Plug>(ale_fix)
 let g:ale_use_global_executables = 1
 let b:ale_linters = {'python': ['flake8']}
 let b:ale_fixers = {'python': ['autopep8']}
-
-"######################### SNIPPETS ###################################
-" Trigger configuration. You need to change this to something other than <tab> if you use one of the following:
-" - https://github.com/Valloric/YouCompleteMe
-" - https://github.com/nvim-lua/completion-nvim
-" let g:UltiSnipsExpandTrigger="<tab>"
-" let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsExpandTrigger="<C-K>"
-let g:UltiSnipsJumpForwardTrigger="<C-K>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"

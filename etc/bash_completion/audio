@@ -2,7 +2,7 @@
 #COMP_CWORD is an index of the word containing the current cursor position.
 #COMPREPLY is an array variable from which Bash reads the possible completions.
 
-function _list_audio_sinks {
+__list_audio_sinks() {
     audio -l
 }
 
@@ -20,7 +20,7 @@ _audio()
 
     case $prev in
         *)
-            LIST_SINKS=$( _list_audio_sinks | cut -d: -f2 | sed -e 's:\([()]\):\\\\\0:g' )
+            LIST_SINKS=$( __list_audio_sinks | cut -d: -f2 | sed -e 's:\([()]\):\\\\\0:g' )
             opts=$LIST_SINKS
             ;;
     esac

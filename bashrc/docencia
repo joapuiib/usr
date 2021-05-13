@@ -21,7 +21,7 @@ moduls=( ["m1"]="DAM-M01" ["m3"]="DAM-M03" ["m16"]="DAM-M16" )
 for modul in ${!moduls[@]}; do
     codi=${moduls[$modul]}
     set_variable_alias "${modul}"      "$itb_source/$codi"
-    set_variable_alias "${modul}_data" "$itb_data/$codi"
+    set_variable_alias "${modul}_data" "$itb_data/moduls/$codi"
     UFS=`find "$itb_source/$codi" -maxdepth 1 -name UF\* | sed 's/^.*UF//'`
     for i in $UFS; do
         set_variable_alias "${modul}$i" "$itb_source/$codi/UF$i"
@@ -32,3 +32,4 @@ unset codi
 alias opos="cd $itb_source/Oposicions/UF1/exercicis"
 alias grade="cd $HOME/docencia/moduls/m3/grade"
 alias gripau="cd $HOME/docencia/gripau/gripau-server"
+alias todo="vi $HOME/docencia/TODO.txt"

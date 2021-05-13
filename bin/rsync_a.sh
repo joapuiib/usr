@@ -18,6 +18,8 @@ DIR=""
 EXCLUDE=' --exclude .DS_Store '
 EXCLUDE=' --exclude *.pyc '
 
+PORT="22"
+
 while [ $# -ge 1 ] ; do
 
     case $1 in
@@ -31,6 +33,14 @@ while [ $# -ge 1 ] ; do
             ;;
         -h | --host)
             DESTI=$2
+            shift
+            ;;
+        -u | --usuari)
+            USUARI=$2
+            shift
+            ;;
+        -p | --port)
+            PORT=$2
             shift
             ;;
         *)
@@ -58,8 +68,10 @@ if [ -z ${DESTI} ] ; then
     exit 1
 fi
 
-CMD_PROVA="rsync -avHCRn --delete ${EXCLUDE} ./${DIR} ${USUARI}@${DESTI}:${DIR_ACTUAL}"
- CMD_REAL="rsync -avHCR  --delete ${EXCLUDE} ./${DIR} ${USUARI}@${DESTI}:${DIR_ACTUAL}"
+PORT_CONFIG="-e 'ssh -p $PORT'"
+
+CMD_PROVA="rsync -avHCRn $PORT_CONFIG --delete ${EXCLUDE} ./${DIR} ${USUARI}@${DESTI}:${DIR_ACTUAL}"
+ CMD_REAL="rsync -avHCR  $PORT_CONFIG --delete ${EXCLUDE} ./${DIR} ${USUARI}@${DESTI}:${DIR_ACTUAL}"
 
 ${CMD_PROVA}
 
