@@ -10,7 +10,8 @@
 # apt install alltray
 # apt install chromium-browser chromium-codecs-ffmpeg-extra
 
-# curl -sS https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add - 
+# Key valid as 13/06/2021
+# curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | sudo apt-key add - 
 # echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
 # sudo apt-get update && sudo apt-get install spotify-client
 
@@ -47,12 +48,13 @@
 ## fix libcusolver.10
 # apt install libcusolver10
 
-## Dokcer
+## Docker
 # echo "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable" | sudo tee /etc/apt/sources.list.d/docker.list
 # curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 # sudo apt update
 # sudo apt install docker-ce docker-ce-cli containerd.io pigz
 # sudo usermod -aG docker $USER
+# sudo cp $HOME/usr/docker/daemon.json /etc/docker/daemon.json
 
 ## Install ruby with rbenv
 # git clone git@github.com:sstephenson/rbenv.git ~/.rbenv

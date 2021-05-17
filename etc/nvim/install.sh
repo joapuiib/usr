@@ -20,4 +20,5 @@ if [ ! -f ~/.local/share/nvim/site/autoload/plug.vim ] ; then
 fi
 
 # Install plugins
+vim -e -c UpdateRemotePlugins -c q -c q
 vim -e -c PlugInstall -c q -c q
