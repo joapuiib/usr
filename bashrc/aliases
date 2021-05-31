@@ -24,7 +24,7 @@ alias obri=xdg_open
 alias pytest='python3 -m pytest'
 
 alias autosource="source $HOME/.bashrc"
-alias usr="cd ~/usr"
+alias usr="cd $USR"
 
 export nvim="$HOME/usr/etc/nvim"
 # alias nvim="nvim -u $nvim/init.vim"

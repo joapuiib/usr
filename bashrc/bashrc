@@ -10,18 +10,19 @@ if [ -d "$HOME/usr/bin" ] ; then
     PATH="$HOME/usr/bin:$PATH"
 fi
 
+USR="$HOME/usr"
 # Source autocompletion scripts for user scripts
-if [ -d $HOME/usr/etc/bash_completion ]; then
-    for f in $HOME/usr/etc/bash_completion/*; do
+if [ -d $USR/etc/bash_completion ]; then
+    for f in $USR/etc/bash_completion/*; do
         source $f
     done
 fi
 
 # Source aliases
-source $HOME/usr/bashrc/complete_alias
-source $HOME/usr/bashrc/dockerrc
-source $HOME/usr/bashrc/aliases
-source $HOME/usr/bashrc/docencia
+source $USR/bashrc/complete_alias
+source $USR/bashrc/dockerrc
+source $USR/bashrc/aliases
+source $USR/bashrc/docencia
 
 # Bin folders
 if [ -d $HOME/docencia/bin ] ; then
@@ -37,6 +38,9 @@ export LANG
 # Set vim default editor
 export VISUAL=vim
 export EDITOR="$VISUAL"
+
+# Git config file
+export GIT_CONFIG=$USR/bashrc/gitconfig
 
 # ?
 # stty -ixon
