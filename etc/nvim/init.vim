@@ -132,7 +132,7 @@ let @p='"+p'
 " nnoremap <space> za
 
 " Leader
-let mapleader = " "
+let mapleader = "\\"
 let maplocalleader = ","
 nnoremap <leader>ev :vsplit $HOME/usr/etc/nvim/init.vim <cr>
 nnoremap <leader>iv ! bash $HOME/usr/etc/nvim/install.sh >/dev/null <cr> 

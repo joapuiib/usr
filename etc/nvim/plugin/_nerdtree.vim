@@ -18,3 +18,7 @@ let g:NERDTreeDirArrows = 1
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 let g:NERDTreeGlyphReadOnly = "RO"
+
+let NERDTreeMapActivateNode='<space>'
+let NERDTreeMapOpenSplit='v'
+let NERDTreeMapPreviewSplit='gv'
