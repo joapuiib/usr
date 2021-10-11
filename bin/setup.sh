@@ -19,8 +19,12 @@
 # pip3 install setuptools
 # pip3 install wheel
 
+## Use unstable for neovim 0.5
+# sudo add-apt-repository ppa:neovim-ppa/unstable
 # apt install neovim
 # pip3 install pynvim
+# sudo rm /usr/bin/vi
+# ln -s `which nvim` /usr/bin/vi
 # :UpdateRemotePlugins
 # apt install xclip
 
