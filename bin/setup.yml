@@ -1,0 +1,24 @@
+git:
+  # Updated 2021/10/10
+  packages:
+    - git
+  post:
+    - cp ~/usr/etc/git/gitconfig ~/.gitconfig
+
+nvidia-drivers:
+  # Updated 2021/10/10
+  packages:
+    - nvidia-drivers-460
+
+utils:
+  # Updated 2021/10/10
+  packages:
+    - openssh-server
+    - alltray
+
+chrome:
+  # Updated 2021/10/10
+  # Chromium no longer syncronizes accounts :(
+  packages:
+    - openssh-server
+    - alltray
