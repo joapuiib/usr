@@ -4,8 +4,6 @@
 # sudo apt install nvidia-drivers-460
 # sudo apt install git
 
-# sudo add-apt-repository ppa:neovim-ppa/stable
-
 # apt install openssh-server
 # apt install alltray
 # apt install chromium-browser chromium-codecs-ffmpeg-extra
@@ -21,6 +19,8 @@
 
 ## Use unstable for neovim 0.5
 # sudo add-apt-repository ppa:neovim-ppa/unstable
+## sudo add-apt-repository ppa:neovim-ppa/stable
+
 # apt install neovim
 # pip3 install pynvim
 # sudo rm /usr/bin/vi

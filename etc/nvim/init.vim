@@ -59,7 +59,6 @@ call plug#end()
 if need_to_install_plugins == 1
     echo "Installing plugins..."
     silent! PlugInstall
-    silent! UpdateRemotePluigins
     echo "Done!"
     q
 endif
