@@ -20,5 +20,6 @@ let g:NERDTreeDirArrowCollapsible = '▾'
 let g:NERDTreeGlyphReadOnly = "RO"
 
 let NERDTreeMapActivateNode='<space>'
-let NERDTreeMapOpenSplit='v'
+let NERDTreeMapOpenSplit='s'
+let NERDTreeMapOpenVSplit='v'
 let NERDTreeMapPreviewSplit='gv'

@@ -81,6 +81,8 @@ set laststatus=2
 syntax on
 set termguicolors
 colorscheme nord
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1 " Set so txtfmt works
+
 filetype on
 filetype indent plugin on
 " lightline
