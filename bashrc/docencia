@@ -22,10 +22,12 @@ for modul in ${!moduls[@]}; do
     codi=${moduls[$modul]}
     set_variable_alias "${modul}"      "$itb_source/$codi"
     set_variable_alias "${modul}_data" "$itb_data/moduls/$codi"
-    UFS=`find "$itb_source/$codi" -maxdepth 1 -name UF\* | sed 's/^.*UF//'`
-    for i in $UFS; do
-        set_variable_alias "${modul}$i" "$itb_source/$codi/UF$i"
-    done
+    if [ -d $itb_source/$codi ]; then
+        UFS=`find "$itb_source/$codi" -maxdepth 1 -name UF\* | sed 's/^.*UF//'`
+        for i in $UFS; do
+            set_variable_alias "${modul}$i" "$itb_source/$codi/UF$i"
+        done
+    fi
 done
 unset codi
 
