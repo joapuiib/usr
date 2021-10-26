@@ -92,6 +92,8 @@ let g:lightline = { 'colorscheme': 'nord' }
 set autoindent autowrite showmatch wrapmargin=0 report=1
 set showmode nowrap ru
 set tabstop=4 sw=4 
+autocmd FileType javascript,html,css,xml,json setlocal shiftwidth=2 softtabstop=2
+
 set expandtab
 " set background=dark
 set scrolloff=10
