@@ -28,6 +28,10 @@
 # :UpdateRemotePlugins
 # apt install xclip
 
+## Nerd fonts
+# git clone https://github.com/ryanoasis/nerd-fonts ~/opt/nerd-fonts
+# ~/opt/nerd-fonts/install.sh
+
 # ln ~/etc/xkb/gb /usr/share/X11/symbols/
 # setxkbmap gb extd
 
@@ -79,3 +83,9 @@
 # python3 setup.py build
 # python3 setup.py install
 # cd
+
+# Musescore
+# wget -O - https://download.opensuse.org/repositories/home:/mirabile:/mscore/bionic-neon/Release.key | sudo apt-key add -
+# echo deb https://download.opensuse.org/repositories/home:/mirabile:/mscore/bionic-neon ./ | sudo tee /etc/apt/sources.list.d/mscore.list
+# apt install musescore-general-soundfont
+# sudo apt install musescore3
