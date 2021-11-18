@@ -23,6 +23,7 @@ moduls+=(["m3"]="DAM-M03")
 moduls+=(["m16"]="DAM-M16")
 moduls+=(["llmq"]="ASIX-LLMQ")
 moduls+=(["bbdd"]="DAW-BBDD")
+moduls+=(["dbms"]="ASIX-SGDB")
 
 for modul in ${!moduls[@]}; do
     codi=${moduls[$modul]}
