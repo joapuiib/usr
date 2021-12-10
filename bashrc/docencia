@@ -14,7 +14,7 @@ dovers="$HOME/docencia/python/dovers"
 if [ -d "$HOME/docencia/middleman/itb/" ] ; then
     set_variable_alias "itb" "$HOME/docencia/middleman/itb/"
 elif [ -d "$HOME/itb/" ] ; then
-    set_variable_alias "itb" "$HOME/docencia/middleman/itb/"
+    set_variable_alias "itb" "$HOME/itb/"
 else
     exit 1
 fi
