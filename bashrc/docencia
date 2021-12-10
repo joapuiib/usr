@@ -11,7 +11,14 @@ set_variable_alias () {
 
 dovers="$HOME/docencia/python/dovers"
 
-set_variable_alias "itb" "$HOME/docencia/middleman/itb/"
+if [ -d "$HOME/docencia/middleman/itb/" ] ; then
+    set_variable_alias "itb" "$HOME/docencia/middleman/itb/"
+elif [ -d "$HOME/itb/" ] ; then
+    set_variable_alias "itb" "$HOME/docencia/middleman/itb/"
+else
+    exit 1
+fi
+
 set_variable_alias "itb_data" "$itb/data"
 set_variable_alias "itb_source" "$itb/source"
 set_variable_alias "itb_templates" "$itb/templates"
