@@ -16,7 +16,7 @@ if [ -d "$HOME/docencia/middleman/itb/" ] ; then
 elif [ -d "$HOME/itb/" ] ; then
     set_variable_alias "itb" "$HOME/itb/"
 else
-    exit 1
+    return
 fi
 
 set_variable_alias "itb_data" "$itb/data"
