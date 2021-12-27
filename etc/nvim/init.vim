@@ -1,5 +1,10 @@
 " https://gist.github.com/miguelgrinberg/527bb5a400791f89b3c4da4bd61222e4
 " plugins
+
+" let &runtimepath=escape("~/usr/etc/nvim/", '\,') . "," . &runtimepath
+let &runtimepath.=','.escape("~/usr/etc/nvim/", '\,')
+let &runtimepath.=','.escape("~/usr/etc/nvim/after/", '\,')
+
 let need_to_install_plugins = 0
 if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
     silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
@@ -54,6 +59,9 @@ call plug#begin('~/.config/nvim/bundle')
     Plug 'ervandew/supertab'
     " Plug 'Shougo/neosnippet.vim' " Snippets engine
     " Plug 'Shougo/neosnippet-snippets' " Snippets
+    
+    " Yaml folding
+    Plug 'pedrohdz/vim-yaml-folds'
 call plug#end()
 
 if need_to_install_plugins == 1
@@ -94,6 +102,9 @@ set showmode nowrap ru
 set tabstop=4 sw=4 
 autocmd FileType javascript,html,css,xml,json setlocal shiftwidth=2 softtabstop=2
 
+" Set JS filetype for *.gs files
+autocmd BufEnter *.gs setlocal filetype=javascript
+
 set expandtab
 " set background=dark
 set scrolloff=10
@@ -130,10 +141,13 @@ let @p='"+p'
 " nmap <S-tab> <<
 
 " Enable folding
-" set foldmethod=indent
-" set foldlevel=30
+set foldmethod=syntax
+set foldlevel=2
 " Enable folding with the spacebar
-" nnoremap <space> za
+nnoremap <space> za
+nnoremap <C-O> zR
+nnoremap <C-P> zM
+" set nofoldenable
 
 " Leader
 let mapleader = "\\"

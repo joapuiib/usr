@@ -1,5 +1,4 @@
 " YAML Configuration
 " #######################################################################
 
-set tabstop=2 shiftwidth=2
-
+set tabstop=8 shiftwidth=8

@@ -24,6 +24,7 @@
 
 # apt install neovim
 # pip3 install pynvim
+# pip3 install jedi
 # sudo rm /usr/bin/vi
 # ln -s `which nvim` /usr/bin/vi
 # :UpdateRemotePlugins

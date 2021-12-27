@@ -36,6 +36,7 @@ LANG="en_US.utf8"
 export LANG
 
 # Set vim default editor
+export VIMINIT="source ~/usr/etc/nvim/init.vim"
 export VISUAL=vim
 export EDITOR="$VISUAL"
 
