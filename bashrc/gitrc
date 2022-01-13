@@ -1,0 +1,23 @@
+#!/bin/bash 
+
+# ------------------------------------
+# Git alias and function
+# ------------------------------------
+
+alias gs="git status"
+complete -F _complete_alias gs
+
+alias gp="git push"
+complete -F _complete_alias gp
+
+alias gpl="git pull"
+complete -F _complete_alias gpl
+
+alias ga="git add"
+complete -F _complete_alias ga
+
+alias gc="git commit"
+complete -F _complete_alias gc
+
+alias gd="git diff"
+complete -F _complete_alias gc

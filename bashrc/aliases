@@ -27,7 +27,7 @@ alias autosource="source $HOME/.bashrc"
 alias usr="cd $USR"
 
 export nvim="$HOME/usr/etc/nvim"
-# alias nvim="nvim -u $nvim/init.vim"
 alias vi="nvim"
+alias nvim_folder="cd $nvim"
 
 alias clip="xclip -sel clipboard"
