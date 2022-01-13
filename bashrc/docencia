@@ -45,7 +45,7 @@ for modul in ${!moduls[@]}; do
 done
 unset codi
 
-alias opos="cd $itb_source/Oposicions/UF1/exercicis"
 alias grade="cd $HOME/docencia/grade"
+alias jutge="cd $HOME/docencia/jutge"
 alias gripau="cd $HOME/docencia/gripau/gripau-server"
 alias todo="vi $HOME/docencia/TODO.txt"
