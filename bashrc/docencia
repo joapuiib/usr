@@ -46,6 +46,6 @@ done
 unset codi
 
 alias grade="cd $HOME/docencia/grade"
-alias jutge="cd $HOME/docencia/jutge"
+alias jutge="cd $HOME/docencia/python/jutge"
 alias gripau="cd $HOME/docencia/gripau/gripau-server"
 alias todo="vi $HOME/docencia/TODO.txt"
