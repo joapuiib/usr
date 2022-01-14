@@ -73,6 +73,7 @@ check_repo() {
     fi
 }
 
+repos+=(["usr"]="$HOME/usr")
 check_status() {
     for repo in ${!repos[@]}; do
         repo_path=${repos[$repo]}
