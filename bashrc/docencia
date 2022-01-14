@@ -9,6 +9,7 @@ set_variable_alias () {
     alias "$1"="cd $2"
 }
 
+
 dovers="$HOME/docencia/python/dovers"
 
 if [ -d "$HOME/docencia/middleman/itb/" ] ; then
@@ -18,6 +19,10 @@ elif [ -d "$HOME/itb/" ] ; then
 else
     return
 fi
+
+declare -A repos
+repos=()
+repos+=(["itb"]="$itb")
 
 set_variable_alias "itb_data" "$itb/data"
 set_variable_alias "itb_source" "$itb/source"
@@ -45,7 +50,35 @@ for modul in ${!moduls[@]}; do
 done
 unset codi
 
-alias grade="cd $HOME/docencia/grade"
-alias jutge="cd $HOME/docencia/python/jutge"
-alias gripau="cd $HOME/docencia/gripau/gripau-server"
+GREEN='\033[0;32m'
+RED='\033[0;31m'
+RESET='\033[0m'
+repos+=(["docencia"]="$HOME/docencia")
+repos+=(["grade"]="$HOME/docencia/grade")
+repos+=(["jutge"]="$HOME/docencia/python/jutge")
+repos+=(["gripau"]="$HOME/docencia/gripau/gripau-server")
+
+for repo in ${!repos[@]}; do
+    repo_path=${repos[$repo]}
+    alias "$repo"="cd $repo_path"
+done
+
 alias todo="vi $HOME/docencia/TODO.txt"
+
+check_repo() {
+    if git -C $2 diff --quiet ; then
+        echo -e "$1($2): ${GREEN}clean${RESET}"
+    else
+        echo -e "$1($2): ${RED}dirty${RESET}"
+    fi
+}
+
+check_status() {
+    for repo in ${!repos[@]}; do
+        repo_path=${repos[$repo]}
+        check_repo $repo $repo_path
+    done
+}
+
+alias status=check_status
+
