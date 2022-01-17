@@ -66,10 +66,14 @@ done
 alias todo="vi $HOME/docencia/TODO.txt"
 
 check_repo() {
-    if git -C $2 diff --quiet ; then
-        echo -e "$1($2): ${GREEN}clean${RESET}"
+    if [ -d $2 ]; then
+        if git -C $2 diff --quiet ; then
+            echo -e "$1($2): ${GREEN}clean${RESET}"
+        else
+            echo -e "$1($2): ${RED}dirty${RESET}"
+        fi
     else
-        echo -e "$1($2): ${RED}dirty${RESET}"
+        echo -e "$1($2): ${RED}not found${RESET}"
     fi
 }
 
