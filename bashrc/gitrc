@@ -21,3 +21,60 @@ complete -F _complete_alias gc
 
 alias gd="git diff"
 complete -F _complete_alias gc
+
+declare -A repos
+repos=()
+
+GREEN='\033[0;32m'
+RED='\033[0;31m'
+RESET='\033[0m'
+
+repos+=(["itb"]="$itb")
+repos+=(["docencia"]="$HOME/docencia")
+repos+=(["grade"]="$HOME/docencia/grade")
+repos+=(["jutge"]="$HOME/docencia/python/jutge")
+repos+=(["gripau"]="$HOME/docencia/gripau/gripau-server")
+repos+=(["usr"]="$HOME/usr")
+
+for repo in ${!repos[@]}; do
+    repo_path=${repos[$repo]}
+    alias "$repo"="cd $repo_path"
+done
+
+_check_repository() {
+    if [ -d $2 ]; then
+        if git -C $2 diff --quiet ; then
+            echo -e "$1 ($2): ${GREEN}clean${RESET}"
+        else
+            echo -e "$1 ($2): ${RED}dirty${RESET}"
+        fi
+    else
+        echo -e "$1 ($2): ${RED}not found${RESET}"
+    fi
+}
+
+_check_status() {
+    for repo in ${!repos[@]}; do
+        repo_path=${repos[$repo]}
+        _check_repository $repo $repo_path
+    done
+}
+
+_pull_repository() {
+    if [ -d $2 ]; then
+        echo -e "${GREEN}pulling $1: ($2) ${RESET}"
+        git -C $2 checkout master
+        git -C $2 pull
+    else 
+        echo -e "$1 ($2): ${RED}not found${RESET}"
+    fi
+}
+_pull_repositories() {
+    for repo in ${!repos[@]}; do
+        repo_path=${repos[$repo]}
+        _pull_repository $repo $repo_path
+    done
+}
+
+alias status=_check_status
+alias pull=_pull_repositories
