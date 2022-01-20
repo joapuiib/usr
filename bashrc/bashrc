@@ -21,9 +21,9 @@ fi
 # Source aliases
 source $USR/bashrc/complete_alias
 source $USR/bashrc/dockerrc
-source $USR/bashrc/gitrc
 source $USR/bashrc/aliases
 source $USR/bashrc/docencia
+source $USR/bashrc/gitrc
 
 # Bin folders
 if [ -d $HOME/docencia/bin ] ; then
