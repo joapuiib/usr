@@ -200,8 +200,85 @@ function ToggleMouse()
     endif
 endfunction
 
+
+"######################### NERDTREE ###################################
+" file browser
+let NERDTreeIgnore = ['\.pyc$', '__pycache__']
+let NERDTreeMinimalUI = 1
+let g:nerdtree_open = 0
+map <leader>t :call NERDTreeToggle()<CR>
+function NERDTreeToggle()
+    NERDTreeTabsToggle
+    if g:nerdtree_open == 1
+        let g:nerdtree_open = 0
+    else
+        let g:nerdtree_open = 1
+        wincmd p
+    endif
+endfunction
+
+let NERDTreeShowHidden=1
+" NERDTree setting defaults to work around http://github.com/scrooloose/nerdtree/issues/489
+let g:NERDTreeDirArrows = 1
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
+let g:NERDTreeGlyphReadOnly = "RO"
+
+set splitbelow
+set splitright
+let g:NERDTreeMapActivateNode='<space>'
+let g:NERDTreeMapOpenSplit='s'
+let g:NERDTreeMapOpenVSplit='v'
+let g:NERDTreeMapPreviewSplit='gv'
+
+
 "######################### ALE ###################################
 nmap <F8> <Plug>(ale_fix)
 let g:ale_use_global_executables = 1
 let b:ale_linters = {'python': ['flake8']}
 let b:ale_fixers = {'python': ['autopep8']}
+
+
+"######################### DEOPLETE ###################################
+autocmd FileType python nnoremap <leader>y :0,$!yapf<Cr>
+autocmd CompleteDone * pclose " To close preview window of deoplete automagically
+
+set completeopt-=preview
+
+" <TAB>: completion.
+" inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+
+
+"######################### DEVICONS ###################################
+" Serveix tant per extensions com per tipus de fitxers
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {} " needed
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['erb'] = ''
+
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['eruby'] = ''
+
+
+"######################### LIGHTLINE ###################################
+let g:lightline = {
+    \ 'component_function': {
+    \   'filetype': 'MyFiletype',
+    \   'fileformat': 'MyFileformat',
+    \ },
+    \ }
+" 'separator': { 'left': '', 'right': '' },
+" 'subseparator': { 'left': '', 'right': '' }
+
+function! MyFiletype()
+return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft') : ''
+endfunction
+
+function! MyFileformat()
+return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) : ''
+endfunction
+
+
+"######################### TELESCOPE ###################################
+" gfiles shortcut
+nnoremap <C-f> <cmd>Telescope find_files<cr>
+nnoremap <C-g> <cmd>Telescope git_files<cr>
+
+autocmd FileType TelescopePrompt call deoplete#custom#buffer_option('auto_complete', v:false)
