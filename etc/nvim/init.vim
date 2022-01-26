@@ -142,7 +142,7 @@ let @p='"+p'
 
 " Enable folding
 set foldmethod=syntax
-set foldlevel=2
+set foldlevel=10
 " Enable folding with the spacebar
 nnoremap <space> za
 nnoremap <C-O> zR
