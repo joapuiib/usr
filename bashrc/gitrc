@@ -70,7 +70,7 @@ _pull_repository() {
     if [ -d $2 ]; then
         echo -e "${GREEN}pulling $1: ($2) ${RESET}"
         git -C $2 checkout master
-        git -C $2 pull
+        git -C $2 pull -f --tags
     else 
         echo -e "$1 ($2): ${RED}not found${RESET}"
     fi
