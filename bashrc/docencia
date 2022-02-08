@@ -35,15 +35,28 @@ moduls+=(["batx"]="BATX-TIC1")
 
 for modul in ${!moduls[@]}; do
     codi=${moduls[$modul]}
-    set_variable_alias "${modul}"      "$itb_source/$codi"
+    set_variable_alias "${modul}" "$itb_source/$codi"
+    if [ -d "$itb_source/$codi/files" ]; then
+        set_variable_alias "${modul}f" "$itb_source/$codi/files"
+    fi
     set_variable_alias "${modul}_data" "$itb_data/moduls/$codi"
     if [ -d $itb_source/$codi ]; then
         UFS=`find "$itb_source/$codi" -maxdepth 1 -name UF\* | sed 's/^.*UF//'`
         for i in $UFS; do
             set_variable_alias "${modul}$i" "$itb_source/$codi/UF$i"
+            if [ -d "$itb_source/$codi/UF$i/files" ]; then
+                set_variable_alias "${modul}${i}f" "$itb_source/$codi/UF${i}/files"
+            fi
         done
     fi
 done
 unset codi
 
 alias todo="vi $HOME/docencia/TODO.txt"
+_push_todo(){
+    git -C $HOME/docencia pull
+    git -C $HOME/docencia add TODO.txt
+    git -C $HOME/docencia commit -m "Update TODO"
+    git -C $HOME/docencia push
+}
+alias todo_push=_push_todo
