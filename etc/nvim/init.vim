@@ -62,6 +62,9 @@ call plug#begin('~/.config/nvim/bundle')
     
     " Yaml folding
     Plug 'pedrohdz/vim-yaml-folds'
+
+    " Mysql integration
+    Plug 'vim-scripts/dbext.vim'
 call plug#end()
 
 if need_to_install_plugins == 1
@@ -282,3 +285,12 @@ nnoremap <C-f> <cmd>Telescope find_files<cr>
 nnoremap <C-g> <cmd>Telescope git_files<cr>
 
 autocmd FileType TelescopePrompt call deoplete#custom#buffer_option('auto_complete', v:false)
+
+"######################### DBEXT ###################################
+"
+let dbhost = trim(system('docker inspect --format "{{ .NetworkSettings.IPAddress }}" mariadb'))
+if v:shell_error != 0
+    dbhost=@askg
+endif
+let g:dbext_default_profile_usual = 'type=MYSQL:user=root:passwd=1234:host=' . dbhost . ':dbname=@askg'
+let g:dbext_default_profile = 'usual'
