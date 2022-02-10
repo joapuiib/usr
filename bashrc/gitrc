@@ -25,6 +25,9 @@ complete -F _complete_alias gd
 alias gch="git checkout"
 complete -F _complete_alias gch
 
+alias gl="git lg"
+complete -F _complete_alias gl
+
 # Show all alias related docker
 galias() { alias | grep 'git' | sed "s/^\([^=]*\)=\(.*\)/\1 => \2/"| sed "s/['|\']//g" | sort; }
 
