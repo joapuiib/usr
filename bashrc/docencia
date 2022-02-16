@@ -32,6 +32,7 @@ moduls+=(["llmq"]="ASIX-LLMQ")
 moduls+=(["bbdd"]="DAW-BBDD")
 moduls+=(["dbms"]="ASIX-SGBD")
 moduls+=(["batx"]="BATX-TIC1")
+moduls+=(["cefire"]="CEFIRE")
 
 for modul in ${!moduls[@]}; do
     codi=${moduls[$modul]}
