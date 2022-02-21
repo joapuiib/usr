@@ -290,7 +290,7 @@ autocmd FileType TelescopePrompt call deoplete#custom#buffer_option('auto_comple
 "
 let dbhost = trim(system('docker inspect --format "{{ .NetworkSettings.IPAddress }}" mariadb'))
 if v:shell_error != 0
-    dbhost=@askg
+    let dbhost="@askg"
 endif
 let g:dbext_default_profile_usual = 'type=MYSQL:user=root:passwd=1234:host=' . dbhost . ':dbname=@askg'
 let g:dbext_default_profile = 'usual'
