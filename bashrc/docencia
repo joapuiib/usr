@@ -53,11 +53,19 @@ for modul in ${!moduls[@]}; do
 done
 unset codi
 
+GREEN='\033[0;32m'
+RED='\033[0;31m'
+RESET='\033[0m'
+
 alias todo="vi $HOME/docencia/TODO.txt"
 _push_todo(){
+    echo -e "${GREEN}git -C $HOME/docencia pull${RESET}"
     git -C $HOME/docencia pull
+    echo -e "${GREEN}git -C $HOME/docencia add TODO.txt${RESET}"
     git -C $HOME/docencia add TODO.txt
+    echo -e "${GREEN}git -C $HOME/docencia commit -m "Update TODO"${RESET}"
     git -C $HOME/docencia commit -m "Update TODO"
+    echo -e "${GREEN}git -C $HOME/docencia push${RESET}"
     git -C $HOME/docencia push
 }
 alias todo_push=_push_todo
