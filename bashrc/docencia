@@ -3,7 +3,7 @@
 # Declara una variable d'entorn i un alias per anar a la ruta
 # $1 id alias/variable
 # $2 ruta
-set_variable_alias () {
+_set_variable_alias () {
     # -g declares a global variable
     declare -g -x "$1"="$2"
     alias "$1"="cd $2"
@@ -12,16 +12,21 @@ set_variable_alias () {
 dovers="$HOME/docencia/python/dovers"
 
 if [ -d "$HOME/docencia/middleman/itb/" ] ; then
-    set_variable_alias "itb" "$HOME/docencia/middleman/itb/"
+    _set_variable_alias "itb" "$HOME/docencia/middleman/itb/"
 elif [ -d "$HOME/itb/" ] ; then
-    set_variable_alias "itb" "$HOME/itb/"
+    _set_variable_alias "itb" "$HOME/itb/"
 else
     return
 fi
 
-set_variable_alias "itb_data" "$itb/data"
-set_variable_alias "itb_source" "$itb/source"
-set_variable_alias "itb_templates" "$itb/templates"
+_set_variable_alias "itb_data" "$itb/data"
+_set_variable_alias "itb_source" "$itb/source"
+_set_variable_alias "itb_templates" "$itb/templates"
+
+itbrun () {
+    cd $itb
+    ./run.sh $@
+}
 
 declare -A moduls
 moduls=()
@@ -30,23 +35,24 @@ moduls+=(["m3"]="DAM-M03")
 moduls+=(["m16"]="DAM-M16")
 moduls+=(["llmq"]="ASIX-LLMQ")
 moduls+=(["bbdd"]="DAW-BBDD")
+moduls+=(["dba"]="DAW-BBDD")
 moduls+=(["dbms"]="ASIX-SGBD")
 moduls+=(["batx"]="BATX-TIC1")
 moduls+=(["cefire"]="CEFIRE")
 
 for modul in ${!moduls[@]}; do
     codi=${moduls[$modul]}
-    set_variable_alias "${modul}" "$itb_source/$codi"
+    _set_variable_alias "${modul}" "$itb_source/$codi"
     if [ -d "$itb_source/$codi/files" ]; then
-        set_variable_alias "${modul}f" "$itb_source/$codi/files"
+        _set_variable_alias "${modul}f" "$itb_source/$codi/files"
     fi
-    set_variable_alias "${modul}_data" "$itb_data/moduls/$codi"
+    _set_variable_alias "${modul}_data" "$itb_data/moduls/$codi"
     if [ -d $itb_source/$codi ]; then
         UFS=`find "$itb_source/$codi" -maxdepth 1 -name UF\* | sed 's/^.*UF//'`
         for i in $UFS; do
-            set_variable_alias "${modul}$i" "$itb_source/$codi/UF$i"
+            _set_variable_alias "${modul}$i" "$itb_source/$codi/UF$i"
             if [ -d "$itb_source/$codi/UF$i/files" ]; then
-                set_variable_alias "${modul}${i}f" "$itb_source/$codi/UF${i}/files"
+                _set_variable_alias "${modul}${i}f" "$itb_source/$codi/UF${i}/files"
             fi
         done
     fi
