@@ -19,6 +19,7 @@ else
     return
 fi
 
+alias itbrun="cd $itb; ./run.sh"
 set_variable_alias "itb_data" "$itb/data"
 set_variable_alias "itb_source" "$itb/source"
 set_variable_alias "itb_templates" "$itb/templates"
