@@ -19,9 +19,9 @@ else
     return
 fi
 
-set_variable_alias "itb_data" "$itb/data"
-set_variable_alias "itb_source" "$itb/source"
-set_variable_alias "itb_templates" "$itb/templates"
+_set_variable_alias "itb_data" "$itb/data"
+_set_variable_alias "itb_source" "$itb/source"
+_set_variable_alias "itb_templates" "$itb/templates"
 
 itbrun () {
     cd $itb
