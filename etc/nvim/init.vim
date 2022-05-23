@@ -65,6 +65,9 @@ call plug#begin('~/.config/nvim/bundle')
 
     " Mysql integration
     Plug 'vim-scripts/dbext.vim'
+
+    " Live Server
+    Plug 'turbio/bracey.vim', {'do': 'npm install --prefix server'}
 call plug#end()
 
 if need_to_install_plugins == 1
