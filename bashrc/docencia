@@ -63,7 +63,7 @@ GREEN='\033[0;32m'
 RED='\033[0;31m'
 RESET='\033[0m'
 
-alias todo="vi $HOME/docencia/TODO.txt"
+alias td="vi $HOME/docencia/TODO.txt"
 _push_todo(){
     echo -e "${GREEN}git -C $HOME/docencia pull${RESET}"
     git -C $HOME/docencia pull
@@ -74,4 +74,4 @@ _push_todo(){
     echo -e "${GREEN}git -C $HOME/docencia push${RESET}"
     git -C $HOME/docencia push
 }
-alias todo_push=_push_todo
+alias tdp=_push_todo
