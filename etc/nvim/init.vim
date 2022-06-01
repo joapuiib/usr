@@ -46,14 +46,18 @@ call plug#begin('~/.config/nvim/bundle')
 
     " Nord theme
     Plug 'arcticicestudio/nord-vim'
+    Plug 'ap/vim-css-color' " CSS colors
 
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     Plug 'zchee/deoplete-jedi'
     Plug 'deathlyfrantic/deoplete-spell'
     Plug 'tpope/vim-surround'
+
     Plug 'pangloss/vim-javascript' " JavaScript syntax
     Plug 'vim-python/python-syntax' " Python syntax
+    " Plug 'vim-ruby/vim-ruby' " Ruby utilities
     Plug 'dense-analysis/ale' " Syntax checker
+
     Plug 'SirVer/ultisnips' " Snippets engine
     Plug 'honza/vim-snippets' " Snippets
     Plug 'ervandew/supertab'
@@ -65,6 +69,7 @@ call plug#begin('~/.config/nvim/bundle')
 
     " Mysql integration
     Plug 'vim-scripts/dbext.vim'
+    " Plug 'tpope/vim-dadbod'
 
     " Live Server
     Plug 'turbio/bracey.vim', {'do': 'npm install --prefix server'}
@@ -110,6 +115,7 @@ autocmd FileType javascript,html,css,xml,json setlocal shiftwidth=2 softtabstop=
 
 " Set JS filetype for *.gs files
 autocmd BufEnter *.gs setlocal filetype=javascript
+autocmd BufEnter *.md.erb setlocal filetype=eruby.markdown
 
 set expandtab
 " set background=dark

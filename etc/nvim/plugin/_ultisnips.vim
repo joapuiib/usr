@@ -13,43 +13,34 @@ let g:ulti_expand_res = 0
 let g:ulti_expand_or_jump_res = 0
 
 fu! Expand_or_jump(forward)
-    call UltiSnips#ExpandSnippetOrJump()
-    if g:ulti_expand_or_jump_res == 0
+    call UltiSnips#ExpandSnippet()
+    if g:ulti_expand_res == 0
         if pumvisible()
             return a:forward ? "\<C-N>" : "\<C-P>"
         else
-            return "\<Tab>"
+            if g:expansion_active
+                if a:forward
+                    call UltiSnips#JumpForwards()
+                    if g:ulti_jump_forwards_res == 0
+                        return "\<Tab>"
+                    endif
+                else
+                    call UltiSnips#JumpBackwards()
+                endif
+            else
+                if a:forward
+                    return "\<Tab>"
+                endif
+            endif
         endif
     endif
     return ''
 endfu
-" fu! Expand_or_jump(forward)
-"     call UltiSnips#ExpandSnippet()
-"     if g:ulti_expand_res == 0
-"         if pumvisible()
-"             return a:forward ? "\<C-N>" : "\<C-P>"
-"         else
-"             if g:expansion_active
-"                 if a:forward
-"                     call UltiSnips#JumpForwards()
-"                     if g:ulti_jump_forwards_res == 0
-"                         return "\<Tab>"
-"                     endif
-"                 else
-"                     call UltiSnips#JumpBackwards()
-"                 endif
-"             else
-"                 if a:forward
-"                     return "\<Tab>"
-"                 endif
-"             endif
-"         endif
-"     endif
-"     return ''
-" endfu
 
 " let g:UltiSnipsExpandTrigger=""
 " let g:UltiSnipsJumpForwardTrigger=""
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+" let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 inoremap <silent> <buffer> <TAB> <C-R>=Expand_or_jump(1)<CR>
+inoremap <silent> <buffer> <S-TAB> <C-R>=Expand_or_jump(0)<CR>
 snoremap <silent> <buffer> <TAB> <Esc>:call Expand_or_jump(1)<CR>
+snoremap <silent> <buffer> <S-TAB> <Esc>:call Expand_or_jump(0)<CR>
