@@ -33,9 +33,7 @@ call plug#begin('~/.config/nvim/bundle')
     " Status bar
     Plug 'itchyny/lightline.vim'
 
-    " Telescope file finder / picker
-    Plug 'nvim-lua/popup.nvim'
-    Plug 'nvim-lua/plenary.nvim'
+    " Telescope file finder / picker Plug 'nvim-lua/popup.nvim' Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
 
     " Text formatting and colors for .txt files
@@ -55,6 +53,7 @@ call plug#begin('~/.config/nvim/bundle')
 
     Plug 'pangloss/vim-javascript' " JavaScript syntax
     Plug 'vim-python/python-syntax' " Python syntax
+    Plug 'preservim/vim-markdown' " Markdown syntax
     " Plug 'vim-ruby/vim-ruby' " Ruby utilities
     Plug 'dense-analysis/ale' " Syntax checker
 
