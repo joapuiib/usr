@@ -112,10 +112,6 @@ set showmode nowrap ru
 set tabstop=4 sw=4 
 autocmd FileType javascript,html,css,xml,json setlocal shiftwidth=2 softtabstop=2
 
-" Set JS filetype for *.gs files
-autocmd BufEnter *.gs setlocal filetype=javascript
-autocmd BufEnter *.md.erb setlocal filetype=eruby.markdown
-
 set expandtab
 " set background=dark
 set scrolloff=10
