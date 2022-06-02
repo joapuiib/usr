@@ -57,7 +57,7 @@ for repo in ${!repos[@]}; do
 done
 
 _check_repository() {
-    if [ -d $2 ]; then
+    if [ -d "$2" ]; then
         if git -C $2 diff --quiet ; then
             echo -e "$1 ($2): ${GREEN}clean${RESET}"
         else
@@ -76,7 +76,7 @@ _check_status() {
 }
 
 _pull_repository() {
-    if [ -d $2 ]; then
+    if [ -d "$2" ]; then
         echo -e "${GREEN}pulling $1: ($2) ${RESET}"
         git -C $2 checkout master
         git -C $2 pull -f --tags
