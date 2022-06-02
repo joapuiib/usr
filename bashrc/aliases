@@ -26,8 +26,4 @@ alias pytest='python3 -m pytest'
 alias autosource="source $HOME/.bashrc"
 alias usr="cd $USR"
 
-export nvim="$HOME/usr/etc/nvim"
-alias vi="nvim"
-alias nvim_folder="cd $nvim"
-
 alias clip="xclip -sel clipboard"
