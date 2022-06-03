@@ -37,7 +37,7 @@ LANG="en_US.utf8"
 export LANG
 
 # Set vim default editor
-if which nvim ; then
+if which nvim &>/dev/null ; then
     export VIMINIT="source ~/usr/etc/nvim/init.vim"
     export nvim="$HOME/usr/etc/nvim"
     alias vi="nvim"
