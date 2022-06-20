@@ -48,11 +48,11 @@ for modul in ${!moduls[@]}; do
     fi
     _set_variable_alias "${modul}_data" "$itb_data/moduls/$codi"
     if [ -d $itb_source/$codi ]; then
-        UFS=`find "$itb_source/$codi" -maxdepth 1 -name UF\* | sed 's/^.*UF//'`
-        for i in $UFS; do
-            _set_variable_alias "${modul}$i" "$itb_source/$codi/UF$i"
-            if [ -d "$itb_source/$codi/UF$i/files" ]; then
-                _set_variable_alias "${modul}${i}f" "$itb_source/$codi/UF${i}/files"
+        UDS=`find "$itb_source/$codi" -maxdepth 1 -name UD\* | sed 's/^.*UD//'`
+        for i in $UDS; do
+            _set_variable_alias "${modul}$i" "$itb_source/$codi/UD$i"
+            if [ -d "$itb_source/$codi/UD$i/files" ]; then
+                _set_variable_alias "${modul}${i}f" "$itb_source/$codi/UD${i}/files"
             fi
         done
     fi
