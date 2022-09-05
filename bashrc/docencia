@@ -39,6 +39,9 @@ moduls+=(["dba"]="DAW-BBDD")
 moduls+=(["dbms"]="ASIX-SGBD")
 moduls+=(["batx"]="BATX-TIC1")
 moduls+=(["cefire"]="CEFIRE")
+moduls+=(["ed"]="DAM-ED")
+moduls+=(["psp"]="DAM-PSP")
+moduls+=(["si"]="SMX-SI")
 
 for modul in ${!moduls[@]}; do
     codi=${moduls[$modul]}

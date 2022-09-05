@@ -18,6 +18,9 @@ if [ -d $USR/etc/bash_completion ]; then
     done
 fi
 
+# Prompt
+PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+
 # Source aliases
 source $USR/bashrc/complete_alias
 source $USR/bashrc/dockerrc
