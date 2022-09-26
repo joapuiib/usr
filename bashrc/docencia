@@ -57,6 +57,18 @@ for modul in ${!moduls[@]}; do
             if [ -d "$itb_source/$codi/UD$i/files" ]; then
                 _set_variable_alias "${modul}${i}f" "$itb_source/$codi/UD${i}/files"
             fi
+            if [ -d "$itb_source/$codi/UD$i/materials" ]; then
+                _set_variable_alias "${modul}${i}m" "$itb_source/$codi/UD${i}/materials"
+            fi
+            if [ -d "$itb_source/$codi/UD$i/slides" ]; then
+                _set_variable_alias "${modul}${i}s" "$itb_source/$codi/UD${i}/slides"
+            fi
+            if [ -d "$itb_source/$codi/UD$i/exercicis" ]; then
+                _set_variable_alias "${modul}${i}e" "$itb_source/$codi/UD${i}/exercicis"
+            fi
+            if [ -d "$itb_source/$codi/UD$i/exams" ]; then
+                _set_variable_alias "${modul}${i}ex" "$itb_source/$codi/UD${i}/exams"
+            fi
         done
     fi
 done
