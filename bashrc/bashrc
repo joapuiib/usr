@@ -31,6 +31,9 @@ source $USR/bashrc/gitrc
 # Bin folders
 if [ -d $HOME/docencia/bin ] ; then
     PATH="$HOME/docencia/bin:$PATH"
+    if [ -d $HOME/docencia/python/git_tools ] ; then
+        PATH="$HOME/docencia/python/git_tools:$PATH"
+    fi
 fi
 
 export PYTHONPATH="$HOME/docencia/python/pdf"
