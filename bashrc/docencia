@@ -43,6 +43,15 @@ moduls+=(["ed"]="DAM-ED")
 moduls+=(["psp"]="DAM-PSP")
 moduls+=(["si"]="SMX-SI")
 
+declare -A abbrvs
+abbrvs=()
+abbrvs+=(["f"]="files")
+abbrvs+=(["m"]="materials")
+abbrvs+=(["s"]="slides")
+abbrvs+=(["e"]="exercicis")
+abbrvs+=(["p"]="practiques")
+abbrvs+=(["x"]="exams")
+
 for modul in ${!moduls[@]}; do
     codi=${moduls[$modul]}
     _set_variable_alias "${modul}" "$itb_source/$codi"
@@ -54,21 +63,12 @@ for modul in ${!moduls[@]}; do
         UDS=`find "$itb_source/$codi" -maxdepth 1 -name UD\* | sed 's/^.*UD//'`
         for i in $UDS; do
             _set_variable_alias "${modul}$i" "$itb_source/$codi/UD$i"
-            if [ -d "$itb_source/$codi/UD$i/files" ]; then
-                _set_variable_alias "${modul}${i}f" "$itb_source/$codi/UD${i}/files"
-            fi
-            if [ -d "$itb_source/$codi/UD$i/materials" ]; then
-                _set_variable_alias "${modul}${i}m" "$itb_source/$codi/UD${i}/materials"
-            fi
-            if [ -d "$itb_source/$codi/UD$i/slides" ]; then
-                _set_variable_alias "${modul}${i}s" "$itb_source/$codi/UD${i}/slides"
-            fi
-            if [ -d "$itb_source/$codi/UD$i/exercicis" ]; then
-                _set_variable_alias "${modul}${i}e" "$itb_source/$codi/UD${i}/exercicis"
-            fi
-            if [ -d "$itb_source/$codi/UD$i/exams" ]; then
-                _set_variable_alias "${modul}${i}ex" "$itb_source/$codi/UD${i}/exams"
-            fi
+            for abbrv in ${!abbrvs[@]}; do
+                folder=${abbrvs[$abbrv]}
+                if [ -d "$itb_source/$codi/UD$i/$folder" ]; then
+                    _set_variable_alias "${modul}${i}${abbrv}" "$itb_source/$codi/UD${i}/${folder}"
+                fi
+            done
         done
     fi
 done
