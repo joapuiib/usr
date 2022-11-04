@@ -50,6 +50,7 @@ abbrvs+=(["m"]="materials")
 abbrvs+=(["s"]="slides")
 abbrvs+=(["e"]="exercicis")
 abbrvs+=(["p"]="practiques")
+abbrvs+=(["p"]="practices")
 abbrvs+=(["x"]="exams")
 
 for modul in ${!moduls[@]}; do
