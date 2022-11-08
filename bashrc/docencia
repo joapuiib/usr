@@ -19,9 +19,12 @@ else
     return
 fi
 
-_set_variable_alias "itb_data" "$itb/data"
-_set_variable_alias "itb_source" "$itb/source"
-_set_variable_alias "itb_templates" "$itb/templates"
+_set_variable_alias "itbd" "$itb/data/"
+_set_variable_alias "itbs" "$itb/source/"
+_set_variable_alias "itbt" "$itb/source/templates/"
+_set_variable_alias "itbl" "$itb/source/layouts/"
+_set_variable_alias "itbc" "$itb/source/stylesheets/"
+_set_variable_alias "itbj" "$itb/source/javascripts/"
 
 itbrun () {
     cd $itb
