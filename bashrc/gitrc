@@ -25,6 +25,9 @@ complete -F _complete_alias gd
 alias gch="git checkout"
 complete -F _complete_alias gch
 
+alias gsw="git show"
+complete -F _complete_alias gsw
+
 gl() {
     ARGS=""
     if git cat-file -t origin/gh-pages &>/dev/null
