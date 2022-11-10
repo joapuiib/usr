@@ -58,19 +58,19 @@ abbrvs+=(["x"]="exams")
 
 for modul in ${!moduls[@]}; do
     codi=${moduls[$modul]}
-    _set_variable_alias "${modul}" "$itb_source/$codi"
-    if [ -d "$itb_source/$codi/files" ]; then
-        _set_variable_alias "${modul}f" "$itb_source/$codi/files"
+    _set_variable_alias "${modul}" "$itbs/$codi"
+    if [ -d "$itbs/$codi/files" ]; then
+        _set_variable_alias "${modul}f" "$itbs/$codi/files"
     fi
     _set_variable_alias "${modul}_data" "$itb_data/moduls/$codi"
-    if [ -d $itb_source/$codi ]; then
-        UDS=`find "$itb_source/$codi" -maxdepth 1 -name UD\* | sed 's/^.*UD//'`
+    if [ -d $itbs/$codi ]; then
+        UDS=`find "$itbs/$codi" -maxdepth 1 -name UD\* | sed 's/^.*UD//'`
         for i in $UDS; do
-            _set_variable_alias "${modul}$i" "$itb_source/$codi/UD$i"
+            _set_variable_alias "${modul}$i" "$itbs/$codi/UD$i"
             for abbrv in ${!abbrvs[@]}; do
                 folder=${abbrvs[$abbrv]}
-                if [ -d "$itb_source/$codi/UD$i/$folder" ]; then
-                    _set_variable_alias "${modul}${i}${abbrv}" "$itb_source/$codi/UD${i}/${folder}"
+                if [ -d "$itbs/$codi/UD$i/$folder" ]; then
+                    _set_variable_alias "${modul}${i}${abbrv}" "$itbs/$codi/UD${i}/${folder}"
                 fi
             done
         done
