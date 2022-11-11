@@ -28,13 +28,16 @@ complete -F _complete_alias gch
 alias gsw="git show"
 complete -F _complete_alias gsw
 
-gl() {
-    ARGS=""
+alias gl="git lg"
+complete -F _complete_alias gl
+
+gla() {
+    ARGS="$@"
     if git cat-file -t origin/gh-pages &>/dev/null
     then
-        ARGS="$ARGS --all --not origin/gh-pages"
+        ARGS="$ARGS --not origin/gh-pages"
     fi
-    git lg $ARGS
+    git lg $ARGS --all
 }
 
 # Show all alias related docker
