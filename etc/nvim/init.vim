@@ -89,6 +89,10 @@ let g:python_host_prog='/usr/bin/python2'
 " NeoVim config
 " #######################################################################
 
+" Disable bell
+set visualbell
+set t_vb=
+
 " enable 256 colors
 set t_Co=256
 set t_ut=
@@ -141,6 +145,7 @@ nnoremap <C-H> <C-W><C-H>
 " Copy/paste from clipboard
 let @y='"+y'
 let @p='"+p'
+set clipboard^=unnamed,unnamedplus
 
 " indent/unindent with tab/shift-tab
 " nmap <Tab> >>

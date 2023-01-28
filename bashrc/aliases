@@ -20,7 +20,13 @@ alias lo=libre_office
 xdg_open() {
     xdg-open "$@" &> /dev/null &
 }
-alias obri=xdg_open
+
+if which xdg_open &>/dev/null; then
+    alias obri=xdg_open
+elif which explorer.exe &>/dev/null; then
+    alias obri=explorer.exe
+fi
+
 alias pytest='python3 -m pytest'
 
 alias autosource="source $HOME/.bashrc"
