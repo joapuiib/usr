@@ -145,7 +145,7 @@ nnoremap <C-H> <C-W><C-H>
 " Copy/paste from clipboard
 let @y='"+y'
 let @p='"+p'
-set clipboard^=unnamed,unnamedplus
+" set clipboard^=unnamed,unnamedplus
 
 " indent/unindent with tab/shift-tab
 " nmap <Tab> >>
