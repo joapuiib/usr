@@ -31,6 +31,12 @@ complete -F _complete_alias gsw
 alias gl="git lg"
 complete -F _complete_alias gl
 
+alias gme="git merge"
+complete -F _complete_alias gme
+
+alias grb="git rebase"
+complete -F _complete_alias grb
+
 gla() {
     ARGS="$@"
     if git cat-file -t origin/gh-pages &>/dev/null
