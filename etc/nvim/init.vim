@@ -54,6 +54,8 @@ call plug#begin('~/.config/nvim/bundle')
     Plug 'pangloss/vim-javascript' " JavaScript syntax
     Plug 'vim-python/python-syntax' " Python syntax
     Plug 'preservim/vim-markdown' " Markdown syntax
+    Plug 'ekalinin/Dockerfile.vim' " Dockerfile syntax
+    Plug 'stanangeloff/php.vim' " PHP syntax
     " Plug 'vim-ruby/vim-ruby' " Ruby utilities
     Plug 'dense-analysis/ale' " Syntax checker
 
@@ -114,7 +116,7 @@ let g:lightline = { 'colorscheme': 'nord' }
 set autoindent autowrite showmatch wrapmargin=0 report=1
 set showmode nowrap ru
 set tabstop=4 sw=4 
-autocmd FileType javascript,html,css,xml,json setlocal shiftwidth=2 softtabstop=2
+autocmd FileType javascript,html,css,xml,json,php setlocal shiftwidth=2 softtabstop=2
 
 set expandtab
 " set background=dark
