@@ -52,7 +52,7 @@ if which nvim &>/dev/null ; then
     alias vi="nvim"
     alias nvim_folder="cd $nvim"
 fi
-export VISUAL=vim
+export VISUAL=nvim
 export EDITOR="$VISUAL"
 
 # Git config file
