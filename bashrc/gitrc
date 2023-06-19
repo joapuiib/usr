@@ -4,6 +4,9 @@
 # Git alias and function
 # ------------------------------------
 
+alias gcl="git clone"
+complete -F _complete_alias gcl
+
 alias gs="git status"
 complete -F _complete_alias gs
 
@@ -33,6 +36,9 @@ complete -F _complete_alias gsw
 
 alias gl="git lg"
 complete -F _complete_alias gl
+
+alias gl2="git lg2"
+complete -F _complete_alias gl2
 
 alias gme="git merge"
 complete -F _complete_alias gme
