@@ -13,6 +13,9 @@ complete -F _complete_alias gs
 alias gp="git push"
 complete -F _complete_alias gp
 
+alias gfp="git ftp push"
+complete -F _complete_alias gp
+
 alias gpa="git push --all"
 complete -F _complete_alias gpa
 
