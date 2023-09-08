@@ -62,7 +62,7 @@ for modul in ${!moduls[@]}; do
     if [ -d "$itbs/$codi/files" ]; then
         _set_variable_alias "${modul}f" "$itbs/$codi/files"
     fi
-    _set_variable_alias "${modul}_data" "$itb_data/moduls/$codi"
+    _set_variable_alias "${modul}d" "$itbd/moduls/$codi"
     if [ -d $itbs/$codi ]; then
         UDS=`find "$itbs/$codi" -maxdepth 1 -name UD\* | sed 's/^.*UD//'`
         for i in $UDS; do
