@@ -45,6 +45,7 @@ moduls+=(["cefire"]="CEFIRE")
 moduls+=(["ed"]="DAM-ED")
 moduls+=(["psp"]="DAM-PSP")
 moduls+=(["si"]="SMX-SI")
+moduls+=(["tut"]="DAW-TUT")
 
 declare -A abbrvs
 abbrvs=()
