@@ -11,23 +11,23 @@ _set_variable_alias () {
 
 dovers="$HOME/docencia/python/dovers"
 
-if [ -d "$HOME/docencia/middleman/itb/" ] ; then
-    _set_variable_alias "itb" "$HOME/docencia/middleman/itb/"
-elif [ -d "$HOME/itb/" ] ; then
-    _set_variable_alias "itb" "$HOME/itb/"
+if [ -d "$HOME/docencia/middleman/fp/" ] ; then
+    _set_variable_alias "fp" "$HOME/docencia/middleman/fp/"
+elif [ -d "$HOME/fp/" ] ; then
+    _set_variable_alias "fp" "$HOME/fp/"
 else
     return
 fi
 
-_set_variable_alias "itbd" "$itb/data/"
-_set_variable_alias "itbs" "$itb/source/"
-_set_variable_alias "itbt" "$itb/source/templates/"
-_set_variable_alias "itbl" "$itb/source/layouts/"
-_set_variable_alias "itbc" "$itb/source/stylesheets/"
-_set_variable_alias "itbj" "$itb/source/javascripts/"
+_set_variable_alias "fpd" "$fp/data/"
+_set_variable_alias "fps" "$fp/source/"
+_set_variable_alias "fpt" "$fp/source/templates/"
+_set_variable_alias "fpl" "$fp/source/layouts/"
+_set_variable_alias "fpc" "$fp/source/stylesheets/"
+_set_variable_alias "fpj" "$fp/source/javascripts/"
 
-itbrun () {
-    cd $itb
+fpr () {
+    cd $fp
     ./run.sh $@
 }
 
@@ -59,19 +59,19 @@ abbrvs+=(["x"]="exams")
 
 for modul in ${!moduls[@]}; do
     codi=${moduls[$modul]}
-    _set_variable_alias "${modul}" "$itbs/$codi"
-    if [ -d "$itbs/$codi/files" ]; then
-        _set_variable_alias "${modul}f" "$itbs/$codi/files"
+    _set_variable_alias "${modul}" "$fps/$codi"
+    if [ -d "$fps/$codi/files" ]; then
+        _set_variable_alias "${modul}f" "$fps/$codi/files"
     fi
-    _set_variable_alias "${modul}d" "$itbd/moduls/$codi"
-    if [ -d $itbs/$codi ]; then
-        UDS=`find "$itbs/$codi" -maxdepth 1 -name UD\* | sed 's/^.*UD//'`
+    _set_variable_alias "${modul}d" "$fpd/moduls/$codi"
+    if [ -d $fps/$codi ]; then
+        UDS=`find "$fps/$codi" -maxdepth 1 -name UD\* | sed 's/^.*UD//'`
         for i in $UDS; do
-            _set_variable_alias "${modul}$i" "$itbs/$codi/UD$i"
+            _set_variable_alias "${modul}$i" "$fps/$codi/UD$i"
             for abbrv in ${!abbrvs[@]}; do
                 folder=${abbrvs[$abbrv]}
-                if [ -d "$itbs/$codi/UD$i/$folder" ]; then
-                    _set_variable_alias "${modul}${i}${abbrv}" "$itbs/$codi/UD${i}/${folder}"
+                if [ -d "$fps/$codi/UD$i/$folder" ]; then
+                    _set_variable_alias "${modul}${i}${abbrv}" "$fps/$codi/UD${i}/${folder}"
                 fi
             done
         done
