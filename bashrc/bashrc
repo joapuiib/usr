@@ -19,10 +19,8 @@ if [ -d $USR/etc/bash_completion ]; then
 fi
 
 # Prompt
-parse_git_branch() {
-     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
-}
-export PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[33m\]$(parse_git_branch) \[\033[00m\]$ '
+source git-prompt.sh
+export PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[33m\]$(__git_ps1) \[\033[00m\]$ '
 
 # Source aliases
 source $USR/bashrc/complete_alias
@@ -37,6 +35,9 @@ if [ -d $HOME/docencia/bin ] ; then
     if [ -d $HOME/docencia/python/git_tools ] ; then
         PATH="$HOME/docencia/python/git_tools:$PATH"
     fi
+fi
+if [ -d $HOME/docencia/bin ] ; then
+    PATH="$HOME/peticio_fct/bin:$PATH"
 fi
 
 export PYTHONPATH="$HOME/docencia/python/pdf"
