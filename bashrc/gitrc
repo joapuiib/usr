@@ -55,7 +55,7 @@ gla() {
     then
         ARGS="$ARGS --not origin/gh-pages"
     fi
-    git lg $ARGS --all
+    git lg --all $ARGS
 }
 
 # Show all alias related docker
