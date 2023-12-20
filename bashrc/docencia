@@ -49,6 +49,7 @@ moduls+=(["tut"]="DAW-TUT")
 
 declare -A abbrvs
 abbrvs=()
+abbrvs+=(["c"]="components")
 abbrvs+=(["f"]="files")
 abbrvs+=(["m"]="materials")
 abbrvs+=(["s"]="slides")
@@ -62,6 +63,9 @@ for modul in ${!moduls[@]}; do
     _set_variable_alias "${modul}" "$itbs/$codi"
     if [ -d "$itbs/$codi/files" ]; then
         _set_variable_alias "${modul}f" "$itbs/$codi/files"
+    fi
+    if [ -d "$itbs/$codi/components" ]; then
+        _set_variable_alias "${modul}c" "$itbs/$codi/components"
     fi
     _set_variable_alias "${modul}d" "$itbd/moduls/$codi"
     if [ -d $itbs/$codi ]; then
@@ -80,6 +84,7 @@ done
 unset codi
 
 _set_variable_alias "bdf_institut" "$bdf/ca/institut"
+_set_variable_alias "bdc_institut" "$bdc/ca/institut"
 
 GREEN='\033[0;32m'
 RED='\033[0;31m'
