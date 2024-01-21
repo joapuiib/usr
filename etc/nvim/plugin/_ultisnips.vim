@@ -40,7 +40,7 @@ endfu
 " let g:UltiSnipsExpandTrigger=""
 " let g:UltiSnipsJumpForwardTrigger=""
 " let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-inoremap <silent> <buffer> <TAB> <C-R>=Expand_or_jump(1)<CR>
-inoremap <silent> <buffer> <S-TAB> <C-R>=Expand_or_jump(0)<CR>
-snoremap <silent> <buffer> <TAB> <Esc>:call Expand_or_jump(1)<CR>
-snoremap <silent> <buffer> <S-TAB> <Esc>:call Expand_or_jump(0)<CR>
+" inoremap <silent> <buffer> <TAB> <C-R>=Expand_or_jump(1)<CR>
+" inoremap <silent> <buffer> <S-TAB> <C-R>=Expand_or_jump(0)<CR>
+" snoremap <silent> <buffer> <TAB> <Esc>:call Expand_or_jump(1)<CR>
+" snoremap <silent> <buffer> <S-TAB> <Esc>:call Expand_or_jump(0)<CR>

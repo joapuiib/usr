@@ -46,9 +46,10 @@ call plug#begin('~/.config/nvim/bundle')
     Plug 'arcticicestudio/nord-vim'
     Plug 'ap/vim-css-color' " CSS colors
 
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-    Plug 'zchee/deoplete-jedi'
-    Plug 'deathlyfrantic/deoplete-spell'
+    " TAB suggestions
+    " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    " Plug 'zchee/deoplete-jedi'
+    " Plug 'deathlyfrantic/deoplete-spell'
     Plug 'tpope/vim-surround'
 
     Plug 'pangloss/vim-javascript' " JavaScript syntax
@@ -74,6 +75,9 @@ call plug#begin('~/.config/nvim/bundle')
 
     " Live Server
     Plug 'turbio/bracey.vim', {'do': 'npm install --prefix server'}
+
+    " Copilot
+    Plug 'github/copilot.vim'
 call plug#end()
 
 if need_to_install_plugins == 1
