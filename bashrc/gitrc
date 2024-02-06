@@ -72,6 +72,7 @@ repos+=(["itb"]="$itb")
 repos+=(["docencia"]="$HOME/docencia")
 repos+=(["grade"]="$HOME/docencia/grade")
 repos+=(["jutge"]="$HOME/docencia/python/jutge")
+repos+=(["gitjudge"]="$HOME/docencia/python/gitjudge")
 repos+=(["gripau"]="$HOME/docencia/gripau/gripau-server")
 repos+=(["usr"]="$HOME/usr")
 
