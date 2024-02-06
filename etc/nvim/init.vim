@@ -39,9 +39,6 @@ call plug#begin('~/.config/nvim/bundle')
     " Text formatting and colors for .txt files
     Plug 'bpstahlman/txtfmt'
 
-    " Markdown preview
-    Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
-
     " Nord theme
     Plug 'arcticicestudio/nord-vim'
     Plug 'ap/vim-css-color' " CSS colors
@@ -51,6 +48,9 @@ call plug#begin('~/.config/nvim/bundle')
     " Plug 'zchee/deoplete-jedi'
     " Plug 'deathlyfrantic/deoplete-spell'
     Plug 'tpope/vim-surround'
+
+    " Run tests
+    Plug 'vim-test/vim-test'
 
     Plug 'pangloss/vim-javascript' " JavaScript syntax
     Plug 'vim-python/python-syntax' " Python syntax
@@ -90,6 +90,7 @@ endif
 let g:deoplete#enable_at_startup = 1
 let g:python3_host_prog='/usr/bin/python3'
 let g:python_host_prog='/usr/bin/python2'
+
 
 
 " NeoVim config
@@ -147,6 +148,14 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+"testing mappings
+let test#strategy = "neovim"
+nmap <silent> <leader>t :TestNearest<CR>
+nmap <silent> <leader>T :TestFile<CR>
+nmap <silent> <leader>a :TestSuite<CR>
+nmap <silent> <leader>l :TestLast<CR>
+nmap <silent> <leader>g :TestVisit<CR>
+
 " Macros
 " Copy/paste from clipboard
 let @y='"+y'
@@ -171,8 +180,7 @@ nnoremap <C-P> zM
 let mapleader = "\\"
 let maplocalleader = ","
 nnoremap <leader>ev :vsplit $HOME/usr/etc/nvim/init.vim <cr>
-nnoremap <leader>iv ! bash $HOME/usr/etc/nvim/install.sh >/dev/null <cr> 
-nnoremap <leader>sv :source $HOME/.config/nvim/init.vim <cr>
+nnoremap <leader>sv :source $MYVIMRC<CR>
 
 " Tab movement
 nnoremap <leader>h :tabprevious<CR>
