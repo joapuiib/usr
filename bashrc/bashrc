@@ -52,7 +52,7 @@ if which nvim &>/dev/null ; then
     export VIMINIT="source $MYVIMRC"
     export nvim="$HOME/usr/etc/nvim"
     alias vi="nvim"
-    alias nvim_folder="cd $nvim"
+    alias cdnvim="cd $nvim"
 fi
 export VISUAL=nvim
 export EDITOR="$VISUAL"

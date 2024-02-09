@@ -78,7 +78,7 @@ repos+=(["usr"]="$HOME/usr")
 
 for repo in ${!repos[@]}; do
     repo_path=${repos[$repo]}
-    alias "$repo"="cd $repo_path"
+    alias "cd$repo"="cd $repo_path"
 done
 
 _check_repository() {
