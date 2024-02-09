@@ -28,6 +28,12 @@ complete -F _complete_alias ga
 alias gc="git commit"
 complete -F _complete_alias gc
 
+alias gca="git commit -a"
+complete -F _complete_alias gc
+
+alias gcam="git commit --amend --no-edit"
+complete -F _complete_alias gcam
+
 alias gd="git diff"
 complete -F _complete_alias gd
 
