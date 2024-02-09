@@ -49,6 +49,9 @@ call plug#begin('~/.config/nvim/bundle')
     " Plug 'deathlyfrantic/deoplete-spell'
     Plug 'tpope/vim-surround'
 
+    " LanguageTool plugin
+    Plug 'rhysd/vim-grammarous'
+
     " Run tests
     Plug 'vim-test/vim-test'
 
