@@ -25,10 +25,13 @@
 # apt install neovim
 # pip3 install pynvim
 # pip3 install jedi
-# sudo rm /usr/bin/vi
-# ln -s `which nvim` /usr/bin/vi
 # :UpdateRemotePlugins
 # apt install xclip
+
+## nvm & node
+## https://github.com/nvm-sh/nvm
+# curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+# nvm install node
 
 ## Nerd fonts
 # git clone https://github.com/ryanoasis/nerd-fonts ~/opt/nerd-fonts

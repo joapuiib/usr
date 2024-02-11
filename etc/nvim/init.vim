@@ -160,6 +160,9 @@ nmap <silent> <leader>g :TestVisit<CR>
 " Copy/paste from clipboard
 let @y='"+y'
 let @p='"+p'
+vnoremap <C-y> "+y
+nnoremap <C-y> V"+y
+nnoremap <C-p> "+p
 " set clipboard^=unnamed,unnamedplus
 
 " indent/unindent with tab/shift-tab
@@ -173,7 +176,7 @@ set foldlevel=10
 " Enable folding with the spacebar
 nnoremap <space> za
 nnoremap <C-O> zR
-nnoremap <C-P> zM
+" nnoremap <C-P> zM
 " set nofoldenable
 
 " Leader

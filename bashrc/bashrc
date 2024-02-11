@@ -40,10 +40,8 @@ if [ -d $HOME/docencia/bin ] ; then
     PATH="$HOME/peticio_fct/bin:$PATH"
 fi
 
-export PYTHONPATH="$HOME/docencia/python/pdf"
-
 # LANG
-LANG="en_US.utf8"
+LANG="en_US.utf-8"
 export LANG
 
 # Set vim default editor
