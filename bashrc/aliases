@@ -4,13 +4,15 @@
 # Custom aliases
 # ------------------------------------
 
-declare -a chromes=('chromium-browser' 'chromium' 'google-chrome')
-for chrome in "${chromes[@]}" ; do
-    if which $chrome >/dev/null; then
-        alias chrome=$chrome
-        break
-    fi
-done
+if ! which chrome &>/dev/null; then
+    declare -a chromes=('chromium-browser' 'chromium' 'google-chrome')
+    for chrome in "${chromes[@]}" ; do
+        if which $chrome &>/dev/null; then
+            alias chrome=$chrome
+            break
+        fi
+    done
+fi
 
 libre_office() {
     libreoffice "$@" &> /dev/null &
