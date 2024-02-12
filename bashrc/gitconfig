@@ -8,5 +8,8 @@
     lg = !"git lg1"
     lga = !"git lg --all"
 
+[init]
+	defaultBranch = main
+
 [core]
 	autocrlf = false
