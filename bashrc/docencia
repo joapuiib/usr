@@ -83,8 +83,10 @@ for modul in ${!moduls[@]}; do
 done
 unset codi
 
-_set_variable_alias "bdf_institut" "$bdf/ca/institut"
-_set_variable_alias "bdc_institut" "$bdc/ca/institut"
+for bd in "institut" "ciclisme" "musica" "cinema"; do
+    _set_variable_alias "bdf_$bd" "$bdf/ca/$bd"
+    _set_variable_alias "bdc_$bd" "$bdc/ca/$bd"
+done
 
 GREEN='\033[0;32m'
 RED='\033[0;31m'
