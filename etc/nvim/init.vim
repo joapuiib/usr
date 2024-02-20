@@ -33,7 +33,9 @@ call plug#begin('~/.config/nvim/bundle')
     " Status bar
     Plug 'itchyny/lightline.vim'
 
-    " Telescope file finder / picker Plug 'nvim-lua/popup.nvim' Plug 'nvim-lua/plenary.nvim'
+    " Telescope file finder / picker
+    " Plug 'nvim-lua/popup.nvim'
+    Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
 
     " Text formatting and colors for .txt files
