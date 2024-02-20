@@ -76,10 +76,9 @@ RESET='\033[0m'
 
 repos+=(["itb"]="$itb")
 repos+=(["docencia"]="$HOME/docencia")
-repos+=(["grade"]="$HOME/docencia/grade")
-repos+=(["jutge"]="$HOME/docencia/python/jutge")
-repos+=(["gitjudge"]="$HOME/docencia/python/gitjudge")
-repos+=(["gripau"]="$HOME/docencia/gripau/gripau-server")
+repos+=(["grade"]="$HOME/grade")
+repos+=(["jutge"]="$HOME/python/jutge")
+repos+=(["gitjudge"]="$HOME/python/gitjudge")
 repos+=(["usr"]="$HOME/usr")
 
 for repo in ${!repos[@]}; do
