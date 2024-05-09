@@ -37,6 +37,9 @@ complete -F _complete_alias gcam
 alias gd="git diff"
 complete -F _complete_alias gd
 
+alias gds="git diff --staged"
+complete -F _complete_alias gd
+
 alias gch="git checkout"
 complete -F _complete_alias gch
 
@@ -54,6 +57,12 @@ complete -F _complete_alias gme
 
 alias grb="git rebase"
 complete -F _complete_alias grb
+
+alias gr="git restore"
+complete -F _complete_alias gr
+
+alias grs="git restore --staged"
+complete -F _complete_alias grs
 
 gla() {
     ARGS="$@"
