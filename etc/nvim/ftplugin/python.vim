@@ -12,3 +12,5 @@ nnoremap <buffer> <F5> :w <bar> :call Termpy() <CR>
 let g:ale_python_flake8_options="--ignore=E501,E241"
 
 let g:python_highlight_all = 1
+
+set foldmethod=indent

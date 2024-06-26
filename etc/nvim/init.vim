@@ -178,7 +178,7 @@ set foldlevel=10
 " Enable folding with the spacebar
 nnoremap <space> za
 nnoremap <C-O> zR
-" nnoremap <C-P> zM
+nnoremap <C-P> zM
 " set nofoldenable
 
 " Leader
