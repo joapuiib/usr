@@ -23,6 +23,7 @@
 ## sudo add-apt-repository ppa:neovim-ppa/stable
 
 # apt install neovim
+# dnf install neovim
 # pip3 install pynvim
 # pip3 install jedi
 # :UpdateRemotePlugins
@@ -34,11 +35,16 @@
 # nvm install node
 
 ## Nerd fonts
-# git clone https://github.com/ryanoasis/nerd-fonts ~/opt/nerd-fonts
-# ~/opt/nerd-fonts/install.sh
+# https://www.nerdfonts.com/font-downloads
+# Download DroidSansM Nerd Font
+# Install file locally and set it up
 
-# ln ~/etc/xkb/gb /usr/share/X11/symbols/
-# setxkbmap gb extd
+## Nord theme (https://github.com/nordtheme/gnome-terminal)
+# git clone https://github.com/nordtheme/gnome-terminal.git ~/opt/nord-gnome-terminal
+# ~/opt/nord-gnome-terminal/src/nord.sh
+
+## Keyboard layout
+# sudo ~/usr/etc/xkb/setup_xkb.sh
 
 # Install blueman bluetooth manager
 # apt install blueman
