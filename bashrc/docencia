@@ -33,19 +33,19 @@ itbrun () {
 
 declare -A moduls
 moduls=()
-moduls+=(["m1"]="DAM-M01")
-moduls+=(["m3"]="DAM-M03")
-moduls+=(["m16"]="DAM-M16")
-moduls+=(["llmq"]="ASIX-LLMQ")
-moduls+=(["bd"]="DAM-BD")
-moduls+=(["dba"]="DAM-BD")
-moduls+=(["dbms"]="ASIX-SGBD")
-moduls+=(["batx"]="BATX-TIC1")
-moduls+=(["cefire"]="CEFIRE")
-moduls+=(["ed"]="DAM-ED")
-moduls+=(["psp"]="DAM-PSP")
-moduls+=(["si"]="SMX-SI")
-moduls+=(["tut"]="DAW-TUT")
+moduls+=(["itb_m1"]="DAM-M01")
+moduls+=(["itb_m3"]="DAM-M03")
+moduls+=(["itb_m16"]="DAM-M16")
+moduls+=(["itb_llmq"]="ASIX-LLMQ")
+moduls+=(["itb_bd"]="DAM-BD")
+moduls+=(["itb_dba"]="DAM-BD")
+moduls+=(["itb_dbms"]="ASIX-SGBD")
+moduls+=(["itb_batx"]="BATX-TIC1")
+moduls+=(["itb_cefire"]="CEFIRE")
+moduls+=(["itb_ed"]="DAM-ED")
+moduls+=(["itb_psp"]="DAM-PSP")
+moduls+=(["itb_si"]="SMX-SI")
+moduls+=(["itb_tut"]="DAW-TUT")
 
 declare -A abbrvs
 abbrvs=()
@@ -104,3 +104,30 @@ _push_todo(){
     git -C $HOME/docencia push
 }
 alias tdp=_push_todo
+
+
+#### MKDOCS
+
+declare -A mkdocs_folders
+mkdocs_folders=()
+mkdocs_folders+=(["curs-git"]="cursgit")
+mkdocs_folders+=(["smx-si"]="si")
+mkdocs_folders+=(["daw-ed"]="ed")
+mkdocs_folders+=(["bd"]="bd")
+mkdocs_folders+=(["dam-psp"]="psp")
+mkdocs_folders+=(["iabd-saa"]="saa")
+
+for folder in ${!mkdocs_folders[@]}; do
+    codi=${mkdocs_folders[$folder]}
+
+    if [ -d "$HOME/mkdocs/$folder" ]; then
+        _set_variable_alias "${codi}" "$HOME/mkdocs/$folder"
+        if [ -d "$HOME/mkdocs/$folder/docs" ]; then
+            _set_variable_alias "${codi}d" "$HOME/mkdocs/$folder/docs"
+        fi
+        if [ -d "$HOME/mkdocs/$folder/docs/files" ]; then
+            _set_variable_alias "${codi}f" "$HOME/mkdocs/$folder/docs/files"
+        fi
+    fi
+done
+unset codi, folder, mkdocs_folders
