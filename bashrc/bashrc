@@ -73,7 +73,7 @@ fi
 
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+which pyenv &>/dev/null && eval "$(pyenv init -)"
 
 ### Node modules
 export NODE_PATH=/usr/local/lib/node_modules/
