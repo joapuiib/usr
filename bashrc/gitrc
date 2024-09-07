@@ -73,15 +73,15 @@ gla() {
     git lg --all $ARGS
 }
 
-# Show all alias related docker
+# Show all git related aliases
 galias() { alias | grep 'git' | sed "s/^\([^=]*\)=\(.*\)/\1 => \2/"| sed "s/['|\']//g" | sort; }
-
-declare -A repos
-repos=()
 
 GREEN='\033[0;32m'
 RED='\033[0;31m'
 RESET='\033[0m'
+
+declare -A repos
+repos=()
 
 repos+=(["itb"]="$itb")
 repos+=(["docencia"]="$HOME/docencia")
@@ -89,6 +89,14 @@ repos+=(["grade"]="$HOME/grade")
 repos+=(["jutge"]="$HOME/python/jutge")
 repos+=(["gitjudge"]="$HOME/python/gitjudge")
 repos+=(["usr"]="$HOME/usr")
+repos+=(["mkdocs-material-joapuiib"]="$HOME/mkdocs/mkdocs-material-joapuiib")
+repos+=(["curs-git"]="$HOME/mkdocs/curs-git")
+repos+=(["daw-ed"]="$HOME/mkdocs/daw-ed")
+repos+=(["dam-psp"]="$HOME/mkdocs/dam-psp")
+repos+=(["bd"]="$HOME/mkdocs/dam-bd")
+repos+=(["smx-si"]="$HOME/mkdocs/smx-si")
+repos+=(["iabd-saa"]="$HOME/mkdocs/iabd-saa")
+repos+=(["fp"]="$HOME/mkdocs/fp")
 
 for repo in ${!repos[@]}; do
     repo_path=${repos[$repo]}
