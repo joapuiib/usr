@@ -117,6 +117,9 @@ for folder in ${!mkdocs_folders[@]}; do
         if [ -d "$HOME/mkdocs/$folder/docs/files" ]; then
             _set_variable_alias "${codi}f" "$HOME/mkdocs/$folder/docs/files"
         fi
+        if [ -d "$HOME/mkdocs/$folder/docs/apunts" ]; then
+            _set_variable_alias "${codi}a" "$HOME/mkdocs/$folder/docs/apunts"
+        fi
     fi
 done
 unset codi, folder, mkdocs_folders
