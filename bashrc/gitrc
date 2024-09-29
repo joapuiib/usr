@@ -80,6 +80,7 @@ gla() {
 galias() { alias | grep 'git' | sed "s/^\([^=]*\)=\(.*\)/\1 => \2/"| sed "s/['|\']//g" | sort; }
 
 GREEN='\033[0;32m'
+ORANGE='\033[0;33m'
 RED='\033[0;31m'
 RESET='\033[0m'
 
@@ -108,10 +109,12 @@ done
 
 _check_repository() {
     if [ -d "$2" ]; then
-        if git -C $2 diff --quiet ; then
-            echo -e "$1 ($2): ${GREEN}clean${RESET}"
-        else
+        if ! git -C $2 diff --quiet ; then
             echo -e "$1 ($2): ${RED}dirty${RESET}"
+        elif ! git -C $2 diff @{u} HEAD --quiet; then
+            echo -e "$1 ($2): ${ORANGE}unpushed${RESET}"
+        else
+            echo -e "$1 ($2): ${GREEN}clean${RESET}"
         fi
     else
         echo -e "$1 ($2): ${RED}not found${RESET}"
