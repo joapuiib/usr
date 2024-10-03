@@ -69,6 +69,12 @@ complete -F _complete_alias dric
 alias dbu="docker build"
 complete -F _complete_alias dbu
 
+alias dup="docker compose up"
+complete -F _complete_alias dup
+
+alias ddown="docker compose down"
+complete -F _complete_alias ddown
+
 
 # Show all alias related docker
 dalias() { alias | grep 'docker' | sed "s/^\([^=]*\)=\(.*\)/\1 => \2/"| sed "s/['|\']//g" | sort; }
