@@ -117,8 +117,22 @@ for folder in ${!mkdocs_folders[@]}; do
         if [ -d "$HOME/mkdocs/$folder/docs/files" ]; then
             _set_variable_alias "${codi}f" "$HOME/mkdocs/$folder/docs/files"
         fi
+
         if [ -d "$HOME/mkdocs/$folder/docs/apunts" ]; then
             _set_variable_alias "${codi}a" "$HOME/mkdocs/$folder/docs/apunts"
+
+            basedir="$HOME/mkdocs/$folder/docs/apunts"
+            # Find directories starting with a number
+            for dir in $(find $basedir -mindepth 1 -maxdepth 1 -type d); do
+              relative_dir=${dir#$basedir/}
+
+              # Extract the leading number using parameter expansion
+              number=$(basename "$relative_dir" | grep -o '^[0-9]*')
+              if [ -n "$number" ]; then
+                  number=$((10#$number))  # Convert to decimal
+                  _set_variable_alias "${codi}${number}" "$HOME/mkdocs/$folder/docs/apunts/$relative_dir"
+              fi
+            done
         fi
     fi
 done
