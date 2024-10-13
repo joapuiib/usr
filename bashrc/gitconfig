@@ -14,5 +14,12 @@
 [push]
     autoSetupRemote = true
 
+[merge]
+	ff = only
+
+[pull]
+	ff = only
+
 [core]
 	autocrlf = false
+
