@@ -23,3 +23,5 @@
 [core]
 	autocrlf = false
 
+[remote "origin"]
+	prune = true
