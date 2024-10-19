@@ -94,7 +94,7 @@ RESET='\033[0m'
 
 #### MKDOCS
 if [ -d "$HOME/mkdocs" ]; then
-    alias td="find $HOME/mkdocs -name \*.md -exec grep -l @TODO {} \;"
+    alias td="find $HOME/mkdocs -name \*.md -exec grep @TODO {} /dev/null \;"
 fi
 
 declare -A mkdocs_folders
