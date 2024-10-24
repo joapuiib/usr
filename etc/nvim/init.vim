@@ -201,6 +201,13 @@ noremap <leader>8 8gt
 noremap <leader>9 9gt
 noremap <leader>0 :tablast<cr>
 
+" Copilot mapping
+let g:copilot_no_tab_map = v:true
+imap <M-j> <Plug>(copilot-accept-line)
+imap <M-h> <Plug>(copilot-previous)
+imap <M-l> <Plug>(copilot-accept-word)
+
+
 " Spell syntax
 " Per incloure el punt volat
 set iskeyword+=·
@@ -210,7 +217,7 @@ hi clear SpellBad
 hi SpellBad cterm=underline ctermfg=red
 " Dont spell urls
 syn match UrlNoSpell "\w\+:\/\/[^[:space:]]\+" contains=@NoSpell
-nnoremap <leader>s :setlocal spell!<cr>
+nnoremap <leader>s :setlocal spell!<crimap <M-j> <Plug>(copilot-accept-line)>
 
 " Terminal starts in insert mode
 autocmd TermOpen term://* startinsert
