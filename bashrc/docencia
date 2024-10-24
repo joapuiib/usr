@@ -99,7 +99,7 @@ fi
 
 declare -A mkdocs_folders
 mkdocs_folders=()
-mkdocs_folders+=(["curs-git"]="cursgit")
+mkdocs_folders+=(["curs-git"]="cg")
 mkdocs_folders+=(["smx-si"]="si")
 mkdocs_folders+=(["daw-ed"]="ed")
 mkdocs_folders+=(["bd"]="bd")
