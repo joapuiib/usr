@@ -202,7 +202,7 @@ noremap <leader>9 9gt
 noremap <leader>0 :tablast<cr>
 
 " Copilot mapping
-let g:copilot_no_tab_map = v:true
+" let g:copilot_no_tab_map = v:true
 imap <M-j> <Plug>(copilot-accept-line)
 imap <M-h> <Plug>(copilot-previous)
 imap <M-l> <Plug>(copilot-accept-word)
