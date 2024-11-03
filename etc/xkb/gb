@@ -81,6 +81,8 @@ xkb_symbols "extd" {
     key <AE03> { [     3,  periodcentered,   threesuperior,    onethird ] };
     key <AE04> { [     4,          dollar,        EuroSign,  onequarter ] };
     key <AE06> { [     6,     asciicircum, dead_circumflex,    NoSymbol ] };
+    key <AE11> { [ minus,      underscore,          endash,      emdash ] };
+
 
     key <AD02> { [   w,                 W,          wacute,      Wacute ] };
     key <AD03> { [   e,                 E,          eacute,      Eacute ] };
