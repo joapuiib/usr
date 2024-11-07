@@ -50,6 +50,7 @@ call plug#begin('~/.config/nvim/bundle')
     " Plug 'zchee/deoplete-jedi'
     " Plug 'deathlyfrantic/deoplete-spell'
     Plug 'tpope/vim-surround'
+    Plug 'tpope/vim-repeat'
 
     " Run tests
     Plug 'vim-test/vim-test'
