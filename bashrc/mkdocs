@@ -1,0 +1,60 @@
+#!/bin/bash
+
+# Declara una variable d'entorn i un alias per anar a la ruta
+# $1 id alias/variable
+# $2 ruta
+_set_variable_alias () {
+    # -g declares a global variable
+    declare -g -x "$1"="$2"
+    alias "$1"="cd $2"
+}
+
+GREEN='\033[0;32m'
+RED='\033[0;31m'
+RESET='\033[0m'
+
+#### MKDOCS
+if [ -d "$HOME/mkdocs" ]; then
+    alias td="find $HOME/mkdocs -name \*.md -exec grep @TODO {} /dev/null \;"
+fi
+
+declare -A mkdocs_folders
+mkdocs_folders=()
+mkdocs_folders+=(["curs-git"]="cg")
+mkdocs_folders+=(["smx-si"]="si")
+mkdocs_folders+=(["daw-ed"]="ed")
+mkdocs_folders+=(["bd"]="bd")
+mkdocs_folders+=(["dam-psp"]="psp")
+mkdocs_folders+=(["iabd-saa"]="saa")
+
+for folder in ${!mkdocs_folders[@]}; do
+    codi=${mkdocs_folders[$folder]}
+
+    if [ -d "$HOME/mkdocs/$folder" ]; then
+        _set_variable_alias "${codi}" "$HOME/mkdocs/$folder"
+        if [ -d "$HOME/mkdocs/$folder/docs" ]; then
+            _set_variable_alias "${codi}d" "$HOME/mkdocs/$folder/docs"
+        fi
+        if [ -d "$HOME/mkdocs/$folder/docs/files" ]; then
+            _set_variable_alias "${codi}f" "$HOME/mkdocs/$folder/docs/files"
+        fi
+
+        if [ -d "$HOME/mkdocs/$folder/docs/apunts" ]; then
+            _set_variable_alias "${codi}a" "$HOME/mkdocs/$folder/docs/apunts"
+
+            basedir="$HOME/mkdocs/$folder/docs/apunts"
+            # Find directories starting with a number
+            for dir in $(find $basedir -mindepth 1 -maxdepth 1 -type d); do
+              relative_dir=${dir#$basedir/}
+
+              # Extract the leading number using parameter expansion
+              number=$(basename "$relative_dir" | grep -o '^[0-9]*')
+              if [ -n "$number" ]; then
+                  number=$((10#$number))  # Convert to decimal
+                  _set_variable_alias "${codi}${number}" "$HOME/mkdocs/$folder/docs/apunts/$relative_dir"
+              fi
+            done
+        fi
+    fi
+done
+unset codi, folder, mkdocs_folders

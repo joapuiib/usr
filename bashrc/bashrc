@@ -27,6 +27,7 @@ source $USR/bashrc/complete_alias
 source $USR/bashrc/dockerrc
 source $USR/bashrc/aliases
 source $USR/bashrc/docencia
+source $USR/bashrc/mkdocs
 source $USR/bashrc/gitrc
 
 # Bin folders
