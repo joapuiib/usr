@@ -58,6 +58,9 @@ complete -F _complete_alias gl2
 alias gme="git merge"
 complete -F _complete_alias gme
 
+alias gmnf="git merge --no-ff --no-edit"
+complete -F _complete_alias gmnf
+
 alias grb="git rebase"
 complete -F _complete_alias grb
 
