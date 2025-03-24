@@ -61,6 +61,9 @@ complete -F _complete_alias gme
 alias gmnf="git merge --no-ff --no-edit"
 complete -F _complete_alias gmnf
 
+alias gms="git merge --squash"
+complete -F _complete_alias gms
+
 alias grb="git rebase"
 complete -F _complete_alias grb
 
