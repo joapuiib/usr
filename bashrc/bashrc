@@ -45,6 +45,11 @@ fi
 LANG="en_US.utf-8"
 export LANG
 
+if [ -n "$WSL_DISTRO_NAME" ]; then
+    export LANG=C.UTF-8
+    export LC_ALL=C.utf8
+fi
+
 # Set vim default editor
 if which nvim &>/dev/null ; then
     export MYVIMRC="~/usr/etc/nvim/init.vim"
