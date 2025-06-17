@@ -22,10 +22,13 @@ declare -A mkdocs_folders
 mkdocs_folders=()
 mkdocs_folders+=(["curs-git"]="cg")
 mkdocs_folders+=(["smx-si"]="si")
-mkdocs_folders+=(["daw-ed"]="ed")
 mkdocs_folders+=(["bd"]="bd")
 mkdocs_folders+=(["dam-psp"]="psp")
+mkdocs_folders+=(["daw-ed"]="ed")
 mkdocs_folders+=(["iabd-saa"]="saa")
+mkdocs_folders+=(["asix-asgbd"]="asgbd")
+mkdocs_folders+=(["asix-ip"]="iip")
+mkdocs_folders+=(["asix-pi"]="pi")
 
 for folder in ${!mkdocs_folders[@]}; do
     codi=${mkdocs_folders[$folder]}
