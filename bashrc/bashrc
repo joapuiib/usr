@@ -100,3 +100,10 @@ export PATH="$PATH:/usr/local/cuda/bin"
 # NVM
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
+# Custom keyboard layout
+if [ -n "$DISPLAY" ] || [ -n "$WAYLAND_DISPLAY" ]; then
+    if command -v setxkbmap >/dev/null 2>&1; then
+        setxkbmap -I$HOME/.config/xkb gb extd 2>/dev/null
+    fi
+fi
