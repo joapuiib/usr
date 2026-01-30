@@ -35,3 +35,12 @@ alias autosource="source $HOME/.bashrc"
 alias usr="cd $USR"
 
 alias clip="xclip -sel clipboard"
+
+_load_venv() {
+    if [ ! -d ".venv" ]; then
+        echo "Creating virtual environment in .venv..."
+        python3 -m venv .venv
+    fi
+    source .venv/bin/activate
+}
+alias v=_load_venv
