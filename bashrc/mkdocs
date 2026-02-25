@@ -43,6 +43,18 @@ for folder in ${!mkdocs_folders[@]}; do
         fi
         if [ -d "$HOME/mkdocs/$folder/docs/examens" ]; then
             _set_variable_alias "${codi}x" "$HOME/mkdocs/$folder/docs/examens"
+
+            basedir="$HOME/mkdocs/$folder/docs/examens"
+            for dir in $(find $basedir -mindepth 1 -maxdepth 1 -type d); do
+              relative_dir=${dir#$basedir/}
+
+              # Extract the leading number using parameter expansion
+              number=$(basename "$relative_dir" | grep -o '[0-9]*$')
+              if [ -n "$number" ]; then
+                  number=$((10#$number))  # Convert to decimal
+                  _set_variable_alias "${codi}x${number}" "$HOME/mkdocs/$folder/docs/examens/$relative_dir"
+              fi
+            done
         fi
 
         if [ -d "$HOME/mkdocs/$folder/docs/apunts" ]; then

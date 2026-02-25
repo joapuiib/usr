@@ -26,7 +26,6 @@ export PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[33m\]$(__gi
 source $USR/bashrc/complete_alias
 source $USR/bashrc/dockerrc
 source $USR/bashrc/aliases
-source $USR/bashrc/docencia
 source $USR/bashrc/mkdocs
 source $USR/bashrc/gitrc
 
