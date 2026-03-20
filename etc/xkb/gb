@@ -75,7 +75,7 @@ xkb_symbols "extd" {
 
     name[Group1]="English (UK, extended, with Win keys)";
 
-    key <TLDE> { [ dead_grave,    grave,       brokenbar,    notsign] };
+    key <TLDE> { [ dead_grave,    grave,       masculine,   ordfeminine] };
 
     key <AE01> { [     1,          exclam,      exclamdown, onesuperior ] };
     key <AE02> { [     2,        quotedbl,  dead_diaeresis,     onehalf ] };
@@ -95,7 +95,6 @@ xkb_symbols "extd" {
 
     key <AC01> { [   a,                 A,          aacute,      Aacute ] };
     key <AC11> { [   apostrophe,        at,     dead_acute,    NoSymbol ] };
-    key <TLDE> { [        grave,   notsign,      masculine,   femenine  ] };
 
     key <AB03> { [   c,                 C,              ccedilla,    Ccedilla ] };
     key <AB06> { [   n,                 N,                ntilde,      Ntilde ] };

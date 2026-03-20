@@ -14,11 +14,13 @@ Custom extended GB keyboard layout for writing Catalan and Spanish characters mo
 6. __Dead diacritical mark:__ <kbd>Alt</kbd> + <kbd>2</kbd> + <kbd><key\></kbd>= <kbd>¨ <key\></kbd>
 
 ### Other symbols
-7. <kbd>ç</kbd> = <kbd>Alt</kbd> + <kbd>c</kbd>
+1. <kbd>ç</kbd> = <kbd>Alt</kbd> + <kbd>c</kbd>
 1. <kbd>ñ</kbd> = <kbd>Alt</kbd> + <kbd>n</kbd>
 1. <kbd>·</kbd> = <kbd>Shift</kbd> + <kbd>3</kbd>
 1. <kbd>¿</kbd> = <kbd>Alt</kbd> + <kbd>/</kbd>
 1. <kbd>¡</kbd> = <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>1</kbd>
+1. <kbd>º</kbd> = <kbd>Alt</kbd> + <kbd>\`</kbd>
+1. <kbd>ª</kbd> = <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>\`</kbd>
 
 
 
