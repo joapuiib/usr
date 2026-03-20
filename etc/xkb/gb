@@ -13,13 +13,12 @@ xkb_symbols "basic" {
 
     name[Group1]="English (UK)";
 
-    key <AE01>  { [ 1, exclam, exclamdown, onesuperior ] };
     key <AE02>	{ [         2,   quotedbl,  twosuperior,    oneeighth ]	};
     key <AE03>	{ [         3,   sterling, threesuperior,    sterling ]	};
     key <AE04>	{ [         4,     dollar,     EuroSign,   onequarter ]	};
 
     key <AC11>	{ [apostrophe,         at, dead_circumflex, dead_caron]	};
-    key <TLDE>	{ [     grave,    notsign,       masculine,   femenine] };
+    key <TLDE>	{ [     grave,    notsign,          bar,          bar ] };
 
     key <BKSL>	{ [numbersign, asciitilde,   dead_grave,   dead_breve ]	};
     key <LSGT>	{ [ backslash,        bar,          bar,    brokenbar ]	};
@@ -78,11 +77,13 @@ xkb_symbols "extd" {
 
     key <TLDE> { [ dead_grave,    grave,       brokenbar,    notsign] };
 
+    key <AE01> { [     1,          exclam,      exclamdown, onesuperior ] };
     key <AE02> { [     2,        quotedbl,  dead_diaeresis,     onehalf ] };
     key <AE03> { [     3,  periodcentered,   threesuperior,    onethird ] };
     key <AE04> { [     4,          dollar,        EuroSign,  onequarter ] };
     key <AE06> { [     6,     asciicircum, dead_circumflex,    NoSymbol ] };
     key <AE11> { [ minus,      underscore,          endash,      emdash ] };
+    key <AE12> {        [     equal,    plus, question            ]       };
 
 
     key <AD02> { [   w,                 W,          wacute,      Wacute ] };
@@ -94,6 +95,7 @@ xkb_symbols "extd" {
 
     key <AC01> { [   a,                 A,          aacute,      Aacute ] };
     key <AC11> { [   apostrophe,        at,     dead_acute,    NoSymbol ] };
+    key <TLDE> { [        grave,   notsign,      masculine,   femenine  ] };
 
     key <AB03> { [   c,                 C,              ccedilla,    Ccedilla ] };
     key <AB06> { [   n,                 N,                ntilde,      Ntilde ] };
@@ -155,7 +157,7 @@ xkb_symbols "dvorakukp" {
     name[Group1]="English (UK, Dvorak, with UK punctuation)";
 
     key <AE11> {        [     minus,    underscore      ]       };
-    key <AE12> {        [     equal,    plus, question            ]       };
+    key <AE12> {        [     equal,    plus            ]       };
     key <AD11> {        [ bracketleft,  braceleft       ]       };
     key <AD12> {        [ bracketright, braceright      ]       };
     key <AD01> {        [ slash,        question        ]       };
