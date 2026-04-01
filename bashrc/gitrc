@@ -75,11 +75,7 @@ complete -F _complete_alias grs
 
 gla() {
     ARGS="$@"
-    if git cat-file -t origin/gh-pages &>/dev/null
-    then
-        ARGS="$ARGS --not origin/gh-pages"
-    fi
-    git lg --all $ARGS
+    git lg --all --not $(git rev-parse --symbolic --all | grep 'gh-pages') $ARGS
 }
 
 # Show all git related aliases
